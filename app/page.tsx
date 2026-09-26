@@ -43,6 +43,7 @@ export default function Home() {
   const [insurance, setInsurance] = useState<FileList | null>(null);
   const [claim, setClaim] = useState("");
   const [owners, setOwners] = useState("");
+  const [price, setPrice] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -80,7 +81,7 @@ export default function Home() {
       const res = await fetch("/api/verify", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ extraction, seller_claim }),
+        body: JSON.stringify({ extraction, seller_claim, asking_price_inr: price ? Number(price) : null }),
       });
       const report = await res.json();
       sessionStorage.setItem("papertrail_report", JSON.stringify(report));
@@ -134,6 +135,12 @@ export default function Home() {
       <div style={field}>
         <label htmlFor="own" style={labelStyle}>How many owners did they claim?</label>
         <input id="own" style={inputStyle} type="number" min={1} placeholder="1" value={owners} onChange={(e) => setOwners(e.target.value)} />
+      </div>
+
+      <div style={field}>
+        <label htmlFor="price" style={labelStyle}>Asking price <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>· ₹</span></label>
+        <p style={helpStyle}>We compare it against similar cars on the market.</p>
+        <input id="price" style={inputStyle} type="number" min={0} placeholder="e.g. 450000" value={price} onChange={(e) => setPrice(e.target.value)} />
       </div>
 
       {error && (

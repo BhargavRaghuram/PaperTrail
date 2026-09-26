@@ -63,7 +63,7 @@ export async function enrichReport(report: Report): Promise<Report> {
     });
   }
 
-  report.price_comps = priceCompsFor(car.make, car.model);
+  report.price_comps = priceCompsFor(car.make, car.model, car.year, car.asking_price_inr);
   report.questions = questions(report.flags);
   return report;
 }

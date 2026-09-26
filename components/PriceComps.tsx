@@ -2,8 +2,20 @@
 import type { PriceComp } from "@/lib/contracts";
 
 export function PriceComps({ comps, asking }: { comps: PriceComp[]; asking?: number }) {
+  const cheapest = comps.reduce((m, c) => Math.min(m, c.price_inr), Infinity);
+  const save = asking != null && cheapest < asking ? asking - cheapest : 0;
   return (
     <div>
+      {asking != null && (
+        <p className="tnum" style={{ margin: "0 0 10px", color: "var(--ink-2)", fontSize: 14 }}>
+          Seller is asking <strong>₹{asking.toLocaleString("en-IN")}</strong>
+          {save > 0 && (
+            <span style={{ color: "var(--ok)", fontWeight: 600 }}>
+              {" "}· a comparable car is ₹{save.toLocaleString("en-IN")} cheaper
+            </span>
+          )}
+        </p>
+      )}
       {comps.map((c, i) => {
         const better = asking != null && c.price_inr < asking;
         return (

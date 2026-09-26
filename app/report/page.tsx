@@ -128,6 +128,11 @@ export default function ReportPage() {
           <QuestionSheet questions={r.questions} carLabel={carLabel} />
         </section>
       )}
+
+      <footer data-print="hide" style={{ marginTop: 56, paddingTop: 16, borderTop: "1px solid var(--hair)", color: "var(--ink-3)", fontSize: 12.5, lineHeight: 1.5 }}>
+        Document facts are read from your uploads. Public-record, challan and market data are shown
+        from sample sources in this build and connect to live scraping via the Anakin API.
+      </footer>
     </main>
   );
 }
