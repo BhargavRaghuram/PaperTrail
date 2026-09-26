@@ -1,5 +1,6 @@
 import type { CarFacts, Extraction, Report, SellerClaim } from "@/lib/contracts";
 import { buildTimeline, reconcile, unreadableNotices, questions } from "@/lib/engine";
+import { assessParts } from "@/lib/cost/costEngine";
 
 export function carFactsFrom(ext: Extraction): CarFacts {
   const rc = ext.rc;
@@ -17,13 +18,14 @@ export function carFactsFrom(ext: Extraction): CarFacts {
 export function assembleReport(ext: Extraction, seller: SellerClaim): Report {
   const timeline = buildTimeline(ext);
   const flags = reconcile(ext, timeline, seller);
+  const car = carFactsFrom(ext);
   return {
-    car: carFactsFrom(ext),
+    car,
     timeline,
     flags,
     unreadable_notices: unreadableNotices(ext),
     questions: questions(flags),
-    part_risks: [], // filled by Task 8 (cost-of-ownership)
+    part_risks: assessParts(car, timeline),
     price_comps: [], // filled by Task 9 (scrapers)
   };
 }

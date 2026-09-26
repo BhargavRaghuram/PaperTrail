@@ -1,0 +1,13 @@
+[
+  { "part": "Alternator", "category": "high", "km_life": 150000, "years_life": 9, "cost_min_inr": 8000, "cost_max_inr": 15000 },
+  { "part": "Clutch assembly", "category": "high", "km_life": 90000, "years_life": 8, "cost_min_inr": 8000, "cost_max_inr": 18000 },
+  { "part": "Turbocharger", "category": "high", "km_life": 130000, "years_life": 10, "cost_min_inr": 40000, "cost_max_inr": 80000 },
+  { "part": "AC compressor", "category": "high", "km_life": 120000, "years_life": 9, "cost_min_inr": 15000, "cost_max_inr": 30000 },
+  { "part": "Timing belt", "category": "high", "km_life": 100000, "years_life": 7, "cost_min_inr": 5000, "cost_max_inr": 15000 },
+  { "part": "Suspension struts (set)", "category": "high", "km_life": 80000, "years_life": 8, "cost_min_inr": 8000, "cost_max_inr": 20000 },
+  { "part": "Radiator", "category": "low", "km_life": 120000, "years_life": 9, "cost_min_inr": 5000, "cost_max_inr": 12000 },
+  { "part": "Battery", "category": "low", "km_life": 55000, "years_life": 5, "cost_min_inr": 5000, "cost_max_inr": 8000 },
+  { "part": "Tyres (set of 4)", "category": "low", "km_life": 45000, "years_life": 5, "cost_min_inr": 16000, "cost_max_inr": 40000 },
+  { "part": "Brake pads and discs", "category": "low", "km_life": 45000, "years_life": 6, "cost_min_inr": 3000, "cost_max_inr": 10000 },
+  { "part": "Starter motor", "category": "low", "km_life": 130000, "years_life": 9, "cost_min_inr": 4000, "cost_max_inr": 8000 }
+]
