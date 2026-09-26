@@ -116,8 +116,24 @@ export default function ReportPage() {
 
       {r.price_comps.length > 0 && (
         <section style={section()} aria-labelledby="mkt" data-print="hide">
-          <h2 id="mkt" style={h2}>Similar cars on the market</h2>
-          <p style={sub}>Comparable listings, so you know what this car is really worth.</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+            <h2 id="mkt" style={{ ...h2, marginBottom: 0 }}>Similar cars on the market</h2>
+            {r.market && (
+              <span
+                title={r.market.source === "live" ? "Fetched live from the web via Anakin" : "Representative sample data"}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 6, fontSize: 11, fontWeight: 700,
+                  letterSpacing: 0.4, textTransform: "uppercase", padding: "3px 9px", borderRadius: 999,
+                  color: r.market.source === "live" ? "var(--ok)" : "var(--ink-3)",
+                  background: r.market.source === "live" ? "var(--ok-tint)" : "#f1ede4",
+                }}
+              >
+                <span style={{ width: 7, height: 7, borderRadius: "50%", background: r.market.source === "live" ? "var(--ok)" : "var(--ink-3)" }} />
+                {r.market.source === "live" ? "Live via Anakin" : "Sample data"}
+              </span>
+            )}
+          </div>
+          <p style={{ ...sub, marginTop: 6 }}>Comparable listings pulled from the web, so you know what this car is really worth.</p>
           <PriceComps comps={r.price_comps} asking={r.car.asking_price_inr} market={r.market} />
         </section>
       )}
