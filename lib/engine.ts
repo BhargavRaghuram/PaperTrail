@@ -139,3 +139,59 @@ export function reconcile(ext: Extraction, timeline: TLEvent[], seller: SellerCl
 
   return flags;
 }
+
+export function unreadableNotices(ext: Extraction) {
+  const out: { source: string; field: string; message: string }[] = [];
+  for (const e of ext.service_book?.entries ?? []) {
+    for (const f of e.low_confidence_fields ?? []) {
+      out.push({
+        source: e.source, field: f,
+        message: `${e.source} contains an unreadable ${f.replace(/_/g, " ")}. Please retake the photo.`,
+      });
+    }
+  }
+  return out;
+}
+
+const Q: Record<string, string> = {
+  odometer_regression: "Can you explain why the recorded mileage went down between {a} and {b}?",
+  implausible_mileage_jump: "The car appears to have covered {km} km in {days} days between {a} and {b}. Can you explain this usage?",
+  service_gap: "What happened during the gap in service history between {a} and {b}?",
+  insurance_lapse: "Why was the car uninsured between {a} and {b}? Was it involved in any incident during that period?",
+  ownership_mismatch: "The RC shows this is owner no. {rc}. Can you clarify how many previous owners the car has had?",
+  missing_service_history: "Can you share any service invoices or job cards, since the service book has fewer than 2 dated entries?",
+  document_identity_mismatch: "The {field} on the {doc} does not match the RC. Is this document for the same car?",
+};
+
+export function questions(flags: Flag[]) {
+  const qs: { rule: string; question: string }[] = [];
+  const seen = new Set<string>();
+  for (const f of flags) {
+    const r = f.rule;
+    let key = "";
+    let q = "";
+    if (r === "document_identity_mismatch") {
+      key = `${r}|${f.document}`;
+      q = Q[r].replace("{field}", String(f.field).replace(/_/g, " ")).replace("{doc}", String(f.document));
+    } else if (r === "ownership_mismatch") {
+      key = r;
+      q = Q[r].replace("{rc}", String(f.rc_owner_serial));
+    } else if (r === "missing_service_history") {
+      key = r;
+      q = Q[r];
+    } else if (r === "implausible_mileage_jump") {
+      const [a, b] = (f.entries as string[]) ?? ["", ""];
+      const vk = f.values_km as number[];
+      key = `${r}|${a}|${b}`;
+      q = Q[r].replace("{km}", (vk[1] - vk[0]).toLocaleString()).replace("{days}", String(f.days)).replace("{a}", a).replace("{b}", b);
+    } else {
+      const [a, b] = (f.entries as string[]) ?? ["", ""];
+      key = `${r}|${a}|${b}`;
+      q = (Q[r] ?? "").replace("{a}", a).replace("{b}", b);
+    }
+    if (seen.has(key)) continue;
+    seen.add(key);
+    qs.push({ rule: r, question: q });
+  }
+  return qs;
+}
