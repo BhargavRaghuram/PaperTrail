@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Extraction, ServiceBook, ServiceEntry } from "@/lib/contracts";
 
 async function resizeToJpeg(file: File, maxEdge = 1280, q = 0.8): Promise<{ base64: string; mediaType: string }> {
@@ -27,14 +28,19 @@ async function extractOne(file: File, docType: string, stem: string) {
   return fragment;
 }
 
-const field: React.CSSProperties = { marginBottom: 22 };
-const labelStyle: React.CSSProperties = { display: "block", fontWeight: 600, fontSize: 14.5, marginBottom: 2 };
-const helpStyle: React.CSSProperties = { color: "var(--ink-3)", fontSize: 13, margin: "0 0 8px" };
-const inputStyle: React.CSSProperties = {
-  display: "block", width: "100%", padding: "11px 12px", fontSize: 14,
-  background: "var(--surface)", color: "var(--ink)", border: "1px solid var(--hair-strong)",
-  borderRadius: 10, fontFamily: "var(--font-body)",
-};
+function Field({ children, i }: { children: React.ReactNode; i: number }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduce ? false : { opacity: 0, y: 10 }}
+      animate={reduce ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.1 + i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+      style={{ marginBottom: 22 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const router = useRouter();
@@ -94,79 +100,89 @@ export default function Home() {
   }
 
   const canSubmit = !!rc && !busy;
+  const reduce = useReducedMotion();
+
+  const fileCount = (fl: FileList | null) => (fl && fl.length ? `${fl.length} page${fl.length > 1 ? "s" : ""} selected` : null);
 
   return (
-    <main style={{ maxWidth: 560, margin: "0 auto", padding: "clamp(32px, 6vw, 64px) 22px 80px" }}>
-      <div style={{ fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-3)" }}>
-        PaperTrail
-      </div>
-      <h1 style={{ fontSize: "clamp(34px, 7vw, 52px)", margin: "10px 0 8px", letterSpacing: "-0.02em" }}>
-        Verify a used car&apos;s history
-      </h1>
-      <p style={{ color: "var(--ink-2)", margin: "0 0 32px", maxWidth: "48ch", fontSize: 16 }}>
-        Photograph the car&apos;s papers. We rebuild its timeline and surface what doesn&apos;t add up —
-        before any money changes hands.
-      </p>
+    <main style={{ maxWidth: 580, margin: "0 auto", padding: "clamp(32px, 6vw, 72px) 22px 80px" }}>
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 10 }}
+        animate={reduce ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="eyebrow" style={{ letterSpacing: "0.24em" }}>
+          <span className="iris-text" style={{ fontWeight: 600 }}>PaperTrail</span> · provenance check
+        </div>
+        <h1 style={{ fontSize: "clamp(32px, 7vw, 50px)", margin: "12px 0 10px", letterSpacing: "-0.04em", lineHeight: 1.04 }}>
+          Verify a used car&apos;s history
+        </h1>
+        <p style={{ color: "var(--ink-2)", margin: "0 0 34px", maxWidth: "50ch", fontSize: 16, lineHeight: 1.5 }}>
+          Photograph the car&apos;s papers. We rebuild its timeline and surface what doesn&apos;t add up —
+          before any money changes hands.
+        </p>
+      </motion.div>
 
-      <div style={field}>
-        <label htmlFor="rc" style={labelStyle}>RC book</label>
-        <p style={helpStyle}>Registration certificate — front and back if you have them.</p>
-        <input id="rc" style={inputStyle} type="file" accept="image/*" onChange={(e) => setRc(e.target.files?.[0] ?? null)} />
-      </div>
+      <Field i={0}>
+        <label htmlFor="rc" className="field-label">RC book</label>
+        <p className="field-help">Registration certificate — front and back if you have them.</p>
+        <input id="rc" className="input" type="file" accept="image/*" onChange={(e) => setRc(e.target.files?.[0] ?? null)} />
+        {rc && <p className="eyebrow" style={{ marginTop: 7, color: "var(--ok)" }}>{rc.name}</p>}
+      </Field>
 
-      <div style={field}>
-        <label htmlFor="svc" style={labelStyle}>Service book pages</label>
-        <p style={helpStyle}>As many stamped pages as you can — this is where the story lives.</p>
-        <input id="svc" style={inputStyle} type="file" accept="image/*" multiple onChange={(e) => setService(e.target.files)} />
-      </div>
+      <Field i={1}>
+        <label htmlFor="svc" className="field-label">Service book pages</label>
+        <p className="field-help">As many stamped pages as you can — this is where the story lives.</p>
+        <input id="svc" className="input" type="file" accept="image/*" multiple onChange={(e) => setService(e.target.files)} />
+        {fileCount(service) && <p className="eyebrow" style={{ marginTop: 7, color: "var(--ok)" }}>{fileCount(service)}</p>}
+      </Field>
 
-      <div style={field}>
-        <label htmlFor="ins" style={labelStyle}>Insurance <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>· optional</span></label>
-        <p style={helpStyle}>The policy schedule pages, if the seller has them.</p>
-        <input id="ins" style={inputStyle} type="file" accept="image/*" multiple onChange={(e) => setInsurance(e.target.files)} />
-      </div>
+      <Field i={2}>
+        <label htmlFor="ins" className="field-label">Insurance <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>· optional</span></label>
+        <p className="field-help">The policy schedule pages, if the seller has them.</p>
+        <input id="ins" className="input" type="file" accept="image/*" multiple onChange={(e) => setInsurance(e.target.files)} />
+        {fileCount(insurance) && <p className="eyebrow" style={{ marginTop: 7, color: "var(--ok)" }}>{fileCount(insurance)}</p>}
+      </Field>
 
-      <div style={field}>
-        <label htmlFor="claim" style={labelStyle}>What did the seller tell you?</label>
-        <p style={helpStyle}>In their words — we check it against the papers.</p>
-        <textarea id="claim" style={{ ...inputStyle, minHeight: 64, resize: "vertical" }} placeholder="e.g. Single owner, no accidents, full service history" value={claim} onChange={(e) => setClaim(e.target.value)} />
-      </div>
+      <Field i={3}>
+        <label htmlFor="claim" className="field-label">What did the seller tell you?</label>
+        <p className="field-help">In their words — we check it against the papers.</p>
+        <textarea id="claim" className="input" style={{ minHeight: 68, resize: "vertical" }} placeholder="e.g. Single owner, no accidents, full service history" value={claim} onChange={(e) => setClaim(e.target.value)} />
+      </Field>
 
-      <div style={field}>
-        <label htmlFor="own" style={labelStyle}>How many owners did they claim?</label>
-        <input id="own" style={inputStyle} type="number" min={1} placeholder="1" value={owners} onChange={(e) => setOwners(e.target.value)} />
-      </div>
+      <Field i={4}>
+        <label htmlFor="own" className="field-label">How many owners did they claim?</label>
+        <input id="own" className="input" type="number" min={1} placeholder="1" value={owners} onChange={(e) => setOwners(e.target.value)} />
+      </Field>
 
-      <div style={field}>
-        <label htmlFor="price" style={labelStyle}>Asking price <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>· ₹</span></label>
-        <p style={helpStyle}>We compare it against similar cars on the market.</p>
-        <input id="price" style={inputStyle} type="number" min={0} placeholder="e.g. 450000" value={price} onChange={(e) => setPrice(e.target.value)} />
-      </div>
+      <Field i={5}>
+        <label htmlFor="price" className="field-label">Asking price <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>· ₹</span></label>
+        <p className="field-help">We compare it against similar cars on the market.</p>
+        <input id="price" className="input" type="number" min={0} placeholder="e.g. 450000" value={price} onChange={(e) => setPrice(e.target.value)} />
+      </Field>
 
       {error && (
         <p role="alert" style={{ color: "var(--danger)", fontSize: 14, marginBottom: 12 }}>{error}</p>
       )}
 
-      <button
-        type="button"
-        onClick={run}
-        disabled={!canSubmit}
-        aria-busy={!!busy}
-        style={{
-          width: "100%", padding: "15px 20px", borderRadius: 12, border: "none",
-          background: canSubmit ? "var(--ink)" : "var(--hair-strong)",
-          color: canSubmit ? "var(--paper)" : "var(--ink-3)",
-          fontWeight: 700, fontSize: 16, fontFamily: "var(--font-body)",
-          cursor: canSubmit ? "pointer" : "not-allowed", transition: "background 160ms ease",
-        }}
-      >
-        {busy ?? "Check this car"}
+      <button type="button" onClick={run} disabled={!canSubmit} aria-busy={!!busy}
+        className="btn btn-primary" style={{ width: "100%", padding: "15px 20px", fontSize: 15.5 }}>
+        {busy ? (
+          <>
+            <motion.span aria-hidden
+              style={{ width: 15, height: 15, borderRadius: "50%", border: "2px solid currentColor", borderTopColor: "transparent", display: "inline-block" }}
+              animate={reduce ? undefined : { rotate: 360 }}
+              transition={{ duration: 0.7, repeat: Infinity, ease: "linear" }} />
+            {busy}
+          </>
+        ) : "Check this car"}
       </button>
+
       {!rc && !busy && (
         <p style={{ color: "var(--ink-3)", fontSize: 13, marginTop: 10, textAlign: "center" }}>Add the RC to begin.</p>
       )}
-      <p style={{ color: "var(--ink-3)", fontSize: 13, marginTop: 18, textAlign: "center" }}>
-        No login. Nothing saved. One car, one check.
+      <p className="eyebrow" style={{ marginTop: 20, textAlign: "center", letterSpacing: "0.14em" }}>
+        No login · nothing saved · one car, one check
       </p>
     </main>
   );

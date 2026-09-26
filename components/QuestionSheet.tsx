@@ -10,47 +10,27 @@ export function QuestionSheet({
 }) {
   return (
     <div>
-      <button
-        type="button"
-        className="no-print"
-        onClick={() => window.print()}
-        style={{
-          display: "inline-flex", alignItems: "center", gap: 8,
-          padding: "9px 16px", marginBottom: 18, cursor: "pointer",
-          background: "var(--ink)", color: "var(--paper)", border: "none",
-          borderRadius: 999, fontWeight: 600, fontSize: 14, fontFamily: "var(--font-body)",
-        }}
-      >
+      <button type="button" className="no-print btn btn-primary" onClick={() => window.print()} style={{ marginBottom: 18 }}>
         <Printer width={16} height={16} /> Print this sheet
       </button>
 
-      <div data-print="sheet">
-        <p className="no-print" style={{ margin: "0 0 14px", color: "var(--ink-3)", fontSize: 14, maxWidth: "56ch" }}>
+      <div data-print="sheet" className="card" style={{ padding: "24px 24px 12px" }}>
+        <p className="no-print" style={{ margin: "0 0 16px", color: "var(--ink-2)", fontSize: 14, maxWidth: "56ch" }}>
           Ask these before you pay. Each one is tied to something the documents could not explain.
         </p>
         {carLabel && (
-          <p style={{ margin: "0 0 12px", fontSize: 13, color: "var(--ink-2)" }} className="tnum">
-            {carLabel}
-          </p>
+          <p className="eyebrow" style={{ margin: "0 0 14px" }}>{carLabel}</p>
         )}
-        <ol style={{ margin: 0, paddingLeft: 0, listStyle: "none", counterReset: "q" }}>
+        <ol style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
           {questions.map((q, i) => (
-            <li
-              key={i}
-              style={{
-                counterIncrement: "q",
-                display: "flex", gap: 14, alignItems: "baseline",
-                padding: "12px 0", borderTop: i === 0 ? "none" : "1px solid var(--hair)",
-              }}
-            >
-              <span
-                aria-hidden
-                className="tnum"
-                style={{ flex: "none", fontFamily: "var(--font-display)", fontSize: 22, color: "var(--danger)", lineHeight: 1, width: 24 }}
-              >
-                {i + 1}
+            <li key={i} style={{
+              display: "flex", gap: 14, alignItems: "baseline",
+              padding: "13px 0", borderTop: i === 0 ? "none" : "1px solid var(--hair)",
+            }}>
+              <span aria-hidden className="tnum mono" style={{ flex: "none", fontSize: 14, fontWeight: 600, color: "var(--iris-deep)", width: 22 }}>
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <span style={{ lineHeight: 1.5 }}>{q.question}</span>
+              <span style={{ lineHeight: 1.5, fontSize: 15 }}>{q.question}</span>
             </li>
           ))}
         </ol>

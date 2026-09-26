@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-09-26T09:14:02.344Z",
+        "reason": "Hume style brief: iris gradient is the specified hero brand-phrase treatment, used once on the wordmark only"
+      }
+    ]
+  }
+}

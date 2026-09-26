@@ -6,7 +6,7 @@ import { AlertTriangle, Dot } from "./icons";
 const SEV = {
   high: { color: "var(--danger)", tint: "var(--danger-tint)", label: "High" },
   medium: { color: "var(--warn)", tint: "var(--warn-tint)", label: "Medium" },
-  low: { color: "var(--neutral)", tint: "#f1ede4", label: "Low" },
+  low: { color: "var(--ink-3)", tint: "var(--bone)", label: "Low" },
 } as const;
 
 export function FlagCard({ flag, i }: { flag: Flag; i: number }) {
@@ -17,29 +17,25 @@ export function FlagCard({ flag, i }: { flag: Flag; i: number }) {
   return (
     <motion.article
       initial={reduce ? false : { opacity: 0, y: 10 }}
-      animate={reduce ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      style={{ display: "flex", gap: 14, padding: "18px 0", borderTop: "1px solid var(--hair)" }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-8%" }}
+      transition={{ duration: 0.42, delay: Math.min(i * 0.07, 0.35), ease: [0.16, 1, 0.3, 1] }}
+      className="card"
+      style={{ display: "flex", gap: 14, padding: 18, marginBottom: 12 }}
     >
       <div aria-hidden style={{ flex: "none", width: 34, height: 34, borderRadius: "50%", display: "grid", placeItems: "center", background: s.tint, color: s.color }}>
         {flag.severity === "high" ? <AlertTriangle width={18} height={18} /> : <Dot color={s.color} size={9} />}
       </div>
       <div style={{ minWidth: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <h3 style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 650, letterSpacing: "-0.01em" }}>{title}</h3>
-          <span
-            style={{
-              fontSize: 11, fontWeight: 700, letterSpacing: 0.6, textTransform: "uppercase",
-              color: s.color, background: s.tint, padding: "2px 8px", borderRadius: 999,
-            }}
-          >
-            {s.label}
-          </span>
+          <span className="eyebrow" style={{ letterSpacing: "0.1em" }}>{flag.rule.replace(/_/g, " ")}</span>
+          <span className="badge" style={{ color: s.color, background: s.tint }}>{s.label}</span>
         </div>
-        <p style={{ margin: "6px 0 0", color: "var(--ink-2)", maxWidth: "60ch", lineHeight: 1.55 }}>{flag.explanation}</p>
+        <h3 style={{ fontSize: 16.5, fontWeight: 650, letterSpacing: "-0.02em", margin: "5px 0 0" }}>{title}</h3>
+        <p style={{ margin: "6px 0 0", color: "var(--ink-2)", maxWidth: "60ch", lineHeight: 1.5, fontSize: 14 }}>{flag.explanation}</p>
         {flag.context ? (
-          <p style={{ margin: "8px 0 0", fontSize: 13.5, color: "var(--ink-3)", fontStyle: "italic" }}>
-            Noted on the document: “{String(flag.context)}”
+          <p className="mono" style={{ margin: "10px 0 0", fontSize: 12.5, color: "var(--ink-2)", background: "var(--bone)", border: "1px solid var(--hair)", borderRadius: "var(--r-xs)", padding: "8px 11px" }}>
+            on document: “{String(flag.context)}”
           </p>
         ) : null}
       </div>

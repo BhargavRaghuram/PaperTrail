@@ -1,36 +1,49 @@
 :root {
-  /* Forensic-dossier palette — warm paper + ink, daylight-legible, print-native */
-  --paper: #faf8f3;
-  --surface: #ffffff;
-  --ink: #1a1712;
-  --ink-2: #6b6357;
-  --ink-3: #8a8172;
-  --hair: #e7e1d5;
-  --hair-strong: #d8d0c0;
+  /* ── Instrument-panel palette ────────────────────────────────
+     shadcn monochrome structure + Hume pastel washes + a single
+     iris-violet brand accent. Semantic red/amber/green are reserved
+     for data meaning (verdict severity), never for chrome. */
+  --paper: #f3f2ee;        /* page canvas — cool warm-neutral */
+  --bone: #faf7f1;         /* warm section wash */
+  --surface: #ffffff;      /* cards, inputs-on-focus */
+  --surface-2: #fbfaf7;    /* resting input / subtle card */
 
-  --danger: #c8102e;
-  --danger-tint: #fbecec;
-  --warn: #a65a0b;
-  --warn-tint: #f8efe2;
-  --ok: #2e6f40;
-  --ok-tint: #eaf1ea;
-  --neutral: #8a8172;
+  --ink: #1b1a16;          /* near-black, softened */
+  --ink-2: #6a665d;        /* secondary text */
+  --ink-3: #928d81;        /* muted / helper / axis */
+  --hair: #e8e4db;         /* hairline borders */
+  --hair-2: #dbd6cb;       /* stronger hairline */
 
-  --shadow-sm: 0 1px 2px rgba(26, 23, 18, 0.06), 0 2px 8px rgba(26, 23, 18, 0.05);
-  --shadow-md: 0 6px 24px rgba(26, 23, 18, 0.10), 0 2px 6px rgba(26, 23, 18, 0.06);
+  /* Brand accent — the only sustained saturation in chrome */
+  --iris: #c094e4;
+  --iris-deep: #8b57c9;    /* text-safe violet for small accents */
+  --gradient-iris: linear-gradient(90deg, #c094e4 0%, #f7bbe6 50%, #ffb760 100%);
 
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 18px;
+  /* Semantic — data meaning only */
+  --danger: #cf2033; --danger-tint: #fbe9eb;
+  --warn: #b06a12;   --warn-tint: #f8efe0;
+  --ok: #2e7d54;     --ok-tint: #e8f2ec;
 
-  --font-body: var(--font-sans), system-ui, sans-serif;
-  --font-display: var(--font-serif), Georgia, serif;
+  /* Pastel category washes (surfaces + dots, never text/fills) */
+  --blush: #fce0ee; --meringue: #ffe9cf; --mint: #daf7ee;
+  --seafoam: #cef1e1; --sky: #dce8fb; --lavender: #ece2fb;
+
+  --shadow-card: 0 1px 2px rgba(27, 26, 22, 0.04), 0 10px 30px -18px rgba(27, 26, 22, 0.16);
+  --shadow-float: 0 2px 4px rgba(27, 26, 22, 0.05), 0 18px 44px -20px rgba(27, 26, 22, 0.22);
+
+  --r-xs: 8px; --r-sm: 12px; --r-md: 16px; --r-lg: 20px; --r-xl: 24px; --r-pill: 9999px;
+
+  /* next/font sets --font-sans / --font-mono on <html>; build stacks off them. */
+  --font-body: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono-stack: var(--font-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
   --measure: 66ch;
 }
 
 * { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -38,49 +51,139 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.05;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
   margin: 0;
 }
 
 /* Tabular figures for all data (km, ₹, dates) */
-.tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1, "ss01" 1; }
 
-a { color: var(--ink); }
+/* ── Lab-label voice ── mono, uppercase, opened tracking, no ligatures */
+.eyebrow {
+  font-family: var(--font-mono-stack);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-feature-settings: "calt" 0, "liga" 0;
+}
+.mono { font-family: var(--font-mono-stack); font-feature-settings: "calt" 0, "liga" 0; }
 
-::selection { background: #f3d9dd; color: var(--ink); }
-
-:focus-visible {
-  outline: 2px solid var(--danger);
-  outline-offset: 2px;
-  border-radius: 4px;
+/* ── Surfaces ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
 }
 
-/* Themed scrollbar */
-* { scrollbar-width: thin; scrollbar-color: var(--hair-strong) transparent; }
+/* ── Iris gradient text (hero brand moment only) ── */
+.iris-text {
+  background: var(--gradient-iris);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Pills / buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: none; border-radius: var(--r-pill); cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  letter-spacing: -0.01em; padding: 12px 22px;
+  transition: transform 140ms var(--ease-out), background 160ms ease, opacity 160ms ease;
+  will-change: transform;
+}
+.btn:active:not(:disabled) { transform: scale(0.975); }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:disabled { background: var(--hair-2); color: var(--ink-3); cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--ink); padding: 12px 16px; }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:not(:disabled):hover { background: #2b2924; }
+  .btn-ghost:hover { background: rgba(27, 26, 22, 0.05); }
+}
+
+/* ── Badges ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono-stack); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: var(--r-pill);
+  font-feature-settings: "calt" 0, "liga" 0;
+}
+
+/* ── Inputs ── */
+.field-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 3px; letter-spacing: -0.01em; }
+.field-help { color: var(--ink-3); font-size: 13px; margin: 0 0 9px; }
+.input {
+  display: block; width: 100%; padding: 11px 13px; font-size: 14px;
+  background: var(--surface-2); color: var(--ink);
+  border: 1px solid var(--hair-2); border-radius: var(--r-sm);
+  font-family: var(--font-body); letter-spacing: -0.01em;
+  transition: border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+}
+.input::placeholder { color: var(--ink-3); }
+.input:focus {
+  outline: none; background: var(--surface);
+  border-color: var(--iris-deep);
+  box-shadow: 0 0 0 3px rgba(139, 87, 201, 0.14);
+}
+/* File inputs read as dropzones */
+input[type="file"].input { padding: 9px 12px; cursor: pointer; }
+input[type="file"].input::file-selector-button {
+  font-family: var(--font-mono-stack); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  margin-right: 12px; padding: 7px 12px; border: none; border-radius: var(--r-pill);
+  background: var(--ink); color: var(--paper); cursor: pointer;
+  transition: background 140ms ease;
+}
+input[type="file"].input::file-selector-button:hover { background: #2b2924; }
+
+/* ── Browser surfaces themed from the palette ── */
+a { color: var(--iris-deep); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+::selection { background: #ece2fb; color: var(--ink); }
+:focus-visible { outline: 2px solid var(--iris-deep); outline-offset: 2px; border-radius: 4px; }
+* { scrollbar-width: thin; scrollbar-color: var(--hair-2) transparent; }
 *::-webkit-scrollbar { width: 10px; height: 10px; }
-*::-webkit-scrollbar-thumb { background: var(--hair-strong); border-radius: 8px; border: 2px solid var(--paper); }
+*::-webkit-scrollbar-thumb { background: var(--hair-2); border-radius: 8px; border: 2px solid var(--paper); }
 *::-webkit-scrollbar-track { background: transparent; }
+
+/* ── Motion primitives ── */
+@keyframes ping-fade {
+  from { opacity: 0.6; transform: scale(0.7); }
+  to { opacity: 0; transform: scale(2.2); }
+}
+@keyframes draw {
+  from { stroke-dashoffset: var(--len, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
 }
 
-/* Print: only the seller-question sheet, clean on white paper */
+/* ── Print: only the seller-question sheet, clean on white ── */
 @media print {
-  :root { --paper: #ffffff; }
+  :root { --paper: #ffffff; --bone: #ffffff; }
   body { background: #fff; }
   [data-print="hide"] { display: none !important; }
   [data-print="sheet"] { display: block !important; }
