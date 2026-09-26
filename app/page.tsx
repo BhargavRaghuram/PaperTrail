@@ -27,13 +27,13 @@ async function extractOne(file: File, docType: string, stem: string) {
   return fragment;
 }
 
-const box: React.CSSProperties = {
-  display: "block", width: "100%", padding: "10px 12px", margin: "6px 0 16px",
-  background: "#0f172a", color: "#e2e8f0", border: "1px solid #334155", borderRadius: 8,
-};
-const btn: React.CSSProperties = {
-  padding: "12px 20px", borderRadius: 10, border: "none", background: "#e11d48",
-  color: "white", fontWeight: 800, fontSize: 16, cursor: "pointer", width: "100%",
+const field: React.CSSProperties = { marginBottom: 22 };
+const labelStyle: React.CSSProperties = { display: "block", fontWeight: 600, fontSize: 14.5, marginBottom: 2 };
+const helpStyle: React.CSSProperties = { color: "var(--ink-3)", fontSize: 13, margin: "0 0 8px" };
+const inputStyle: React.CSSProperties = {
+  display: "block", width: "100%", padding: "11px 12px", fontSize: 14,
+  background: "var(--surface)", color: "var(--ink)", border: "1px solid var(--hair-strong)",
+  borderRadius: 10, fontFamily: "var(--font-body)",
 };
 
 export default function Home() {
@@ -44,10 +44,12 @@ export default function Home() {
   const [claim, setClaim] = useState("");
   const [owners, setOwners] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   async function run() {
+    setError(null);
     try {
-      setBusy("Reading documents…");
+      setBusy("Reading the RC…");
       const extraction: Extraction = { rc: null, service_book: null, insurance: [] };
 
       if (rc) {
@@ -55,9 +57,9 @@ export default function Home() {
         if (f) extraction.rc = f;
       }
       if (service && service.length) {
-        setBusy("Reading service records…");
+        setBusy("Reading the service book…");
         const entries: ServiceEntry[] = [];
-        let vehicle: ServiceBook["vehicle"] | undefined = undefined;
+        let vehicle: ServiceBook["vehicle"] | undefined;
         for (let i = 0; i < service.length; i++) {
           const f = await extractOne(service[i], "service_book", `service_book_p${i + 1}`);
           if (f?.entries) entries.push(...f.entries);
@@ -66,14 +68,14 @@ export default function Home() {
         extraction.service_book = { document_type: "service_book", vehicle, entries };
       }
       if (insurance && insurance.length) {
-        setBusy("Reading insurance…");
+        setBusy("Reading the insurance…");
         for (let i = 0; i < insurance.length; i++) {
           const f = await extractOne(insurance[i], "insurance", `insurance_${i + 1}`);
           if (f) extraction.insurance.push(f);
         }
       }
 
-      setBusy("Checking for inconsistencies…");
+      setBusy("Reconstructing the timeline…");
       const seller_claim = { claimed_owners: owners ? Number(owners) : null, raw_text: claim };
       const res = await fetch("/api/verify", {
         method: "POST",
@@ -85,45 +87,78 @@ export default function Home() {
       router.push("/report");
     } catch (e) {
       setBusy(null);
-      alert("Something went wrong: " + String(e));
+      setError("Something went wrong reading the documents. Please try again.");
+      console.error(e);
     }
   }
 
+  const canSubmit = !!rc && !busy;
+
   return (
-    <main
-      style={{
-        maxWidth: 560, margin: "0 auto", padding: "40px 24px", color: "#e2e8f0",
-        background: "#020617", minHeight: "100vh", fontFamily: "system-ui, sans-serif",
-      }}
-    >
-      <div style={{ fontSize: 13, letterSpacing: 2, opacity: 0.6, textTransform: "uppercase" }}>PaperTrail</div>
-      <h1 style={{ fontSize: 28, fontWeight: 800, margin: "4px 0 6px" }}>Verify a used car&apos;s history</h1>
-      <p style={{ opacity: 0.7, marginTop: 0, marginBottom: 24 }}>
-        Upload the car&apos;s papers. We build its timeline and flag what doesn&apos;t add up — before you pay.
+    <main style={{ maxWidth: 560, margin: "0 auto", padding: "clamp(32px, 6vw, 64px) 22px 80px" }}>
+      <div style={{ fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+        PaperTrail
+      </div>
+      <h1 style={{ fontSize: "clamp(34px, 7vw, 52px)", margin: "10px 0 8px", letterSpacing: "-0.02em" }}>
+        Verify a used car&apos;s history
+      </h1>
+      <p style={{ color: "var(--ink-2)", margin: "0 0 32px", maxWidth: "48ch", fontSize: 16 }}>
+        Photograph the car&apos;s papers. We rebuild its timeline and surface what doesn&apos;t add up —
+        before any money changes hands.
       </p>
 
-      <label>RC book</label>
-      <input style={box} type="file" accept="image/*" onChange={(e) => setRc(e.target.files?.[0] ?? null)} />
+      <div style={field}>
+        <label htmlFor="rc" style={labelStyle}>RC book</label>
+        <p style={helpStyle}>Registration certificate — front and back if you have them.</p>
+        <input id="rc" style={inputStyle} type="file" accept="image/*" onChange={(e) => setRc(e.target.files?.[0] ?? null)} />
+      </div>
 
-      <label>Service book pages</label>
-      <input style={box} type="file" accept="image/*" multiple onChange={(e) => setService(e.target.files)} />
+      <div style={field}>
+        <label htmlFor="svc" style={labelStyle}>Service book pages</label>
+        <p style={helpStyle}>As many stamped pages as you can — this is where the story lives.</p>
+        <input id="svc" style={inputStyle} type="file" accept="image/*" multiple onChange={(e) => setService(e.target.files)} />
+      </div>
 
-      <label>Insurance (optional)</label>
-      <input style={box} type="file" accept="image/*" multiple onChange={(e) => setInsurance(e.target.files)} />
+      <div style={field}>
+        <label htmlFor="ins" style={labelStyle}>Insurance <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>· optional</span></label>
+        <p style={helpStyle}>The policy schedule pages, if the seller has them.</p>
+        <input id="ins" style={inputStyle} type="file" accept="image/*" multiple onChange={(e) => setInsurance(e.target.files)} />
+      </div>
 
-      <label>Seller&apos;s claim</label>
-      <textarea style={{ ...box, minHeight: 60 }} placeholder="e.g. Single owner, no accidents, full service history" value={claim} onChange={(e) => setClaim(e.target.value)} />
+      <div style={field}>
+        <label htmlFor="claim" style={labelStyle}>What did the seller tell you?</label>
+        <p style={helpStyle}>In their words — we check it against the papers.</p>
+        <textarea id="claim" style={{ ...inputStyle, minHeight: 64, resize: "vertical" }} placeholder="e.g. Single owner, no accidents, full service history" value={claim} onChange={(e) => setClaim(e.target.value)} />
+      </div>
 
-      <label>How many owners did the seller claim?</label>
-      <input style={box} type="number" min={1} placeholder="1" value={owners} onChange={(e) => setOwners(e.target.value)} />
+      <div style={field}>
+        <label htmlFor="own" style={labelStyle}>How many owners did they claim?</label>
+        <input id="own" style={inputStyle} type="number" min={1} placeholder="1" value={owners} onChange={(e) => setOwners(e.target.value)} />
+      </div>
 
-      {busy ? (
-        <div style={{ ...btn, background: "#334155", textAlign: "center" }}>{busy}</div>
-      ) : (
-        <button style={btn} onClick={run}>CHECK CAR</button>
+      {error && (
+        <p role="alert" style={{ color: "var(--danger)", fontSize: 14, marginBottom: 12 }}>{error}</p>
       )}
 
-      <p style={{ opacity: 0.5, fontSize: 13, marginTop: 16, textAlign: "center" }}>
+      <button
+        type="button"
+        onClick={run}
+        disabled={!canSubmit}
+        aria-busy={!!busy}
+        style={{
+          width: "100%", padding: "15px 20px", borderRadius: 12, border: "none",
+          background: canSubmit ? "var(--ink)" : "var(--hair-strong)",
+          color: canSubmit ? "var(--paper)" : "var(--ink-3)",
+          fontWeight: 700, fontSize: 16, fontFamily: "var(--font-body)",
+          cursor: canSubmit ? "pointer" : "not-allowed", transition: "background 160ms ease",
+        }}
+      >
+        {busy ?? "Check this car"}
+      </button>
+      {!rc && !busy && (
+        <p style={{ color: "var(--ink-3)", fontSize: 13, marginTop: 10, textAlign: "center" }}>Add the RC to begin.</p>
+      )}
+      <p style={{ color: "var(--ink-3)", fontSize: 13, marginTop: 18, textAlign: "center" }}>
         No login. Nothing saved. One car, one check.
       </p>
     </main>

@@ -1,32 +1,48 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Flag } from "@/lib/contracts";
+import { AlertTriangle, Dot } from "./icons";
 
-const C = { high: "#e11d48", medium: "#f59e0b", low: "#64748b" } as const;
+const SEV = {
+  high: { color: "var(--danger)", tint: "var(--danger-tint)", label: "High" },
+  medium: { color: "var(--warn)", tint: "var(--warn-tint)", label: "Medium" },
+  low: { color: "var(--neutral)", tint: "#f1ede4", label: "Low" },
+} as const;
 
 export function FlagCard({ flag, i }: { flag: Flag; i: number }) {
+  const s = SEV[flag.severity];
+  const reduce = useReducedMotion();
+  const title = flag.rule.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.1, duration: 0.35 }}
-      style={{
-        padding: 16,
-        margin: "10px 0",
-        borderRadius: 12,
-        background: "#0f172a",
-        borderLeft: `4px solid ${C[flag.severity]}`,
-      }}
+    <motion.article
+      initial={reduce ? false : { opacity: 0, y: 10 }}
+      animate={reduce ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      style={{ display: "flex", gap: 14, padding: "18px 0", borderTop: "1px solid var(--hair)" }}
     >
-      <div style={{ fontSize: 12, color: C[flag.severity], textTransform: "uppercase", fontWeight: 800, letterSpacing: 0.5 }}>
-        {flag.severity} · {flag.rule.replace(/_/g, " ")}
+      <div aria-hidden style={{ flex: "none", width: 34, height: 34, borderRadius: "50%", display: "grid", placeItems: "center", background: s.tint, color: s.color }}>
+        {flag.severity === "high" ? <AlertTriangle width={18} height={18} /> : <Dot color={s.color} size={9} />}
       </div>
-      <div style={{ marginTop: 6, lineHeight: 1.5 }}>{flag.explanation}</div>
-      {flag.context ? (
-        <div style={{ marginTop: 8, fontSize: 13, opacity: 0.8, fontStyle: "italic" }}>
-          Note on document: {String(flag.context)}
+      <div style={{ minWidth: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          <h3 style={{ fontFamily: "var(--font-body)", fontSize: 16, fontWeight: 650, letterSpacing: "-0.01em" }}>{title}</h3>
+          <span
+            style={{
+              fontSize: 11, fontWeight: 700, letterSpacing: 0.6, textTransform: "uppercase",
+              color: s.color, background: s.tint, padding: "2px 8px", borderRadius: 999,
+            }}
+          >
+            {s.label}
+          </span>
         </div>
-      ) : null}
-    </motion.div>
+        <p style={{ margin: "6px 0 0", color: "var(--ink-2)", maxWidth: "60ch", lineHeight: 1.55 }}>{flag.explanation}</p>
+        {flag.context ? (
+          <p style={{ margin: "8px 0 0", fontSize: 13.5, color: "var(--ink-3)", fontStyle: "italic" }}>
+            Noted on the document: “{String(flag.context)}”
+          </p>
+        ) : null}
+      </div>
+    </motion.article>
   );
 }
