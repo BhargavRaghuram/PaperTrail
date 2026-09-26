@@ -8,6 +8,7 @@ const ORDER: Record<TLType, number> = {
   insurance_start: 1,
   service: 2,
   insurance_end: 3,
+  challan: 4,
 };
 
 export function buildTimeline(ext: Extraction): TLEvent[] {
@@ -161,6 +162,9 @@ const Q: Record<string, string> = {
   ownership_mismatch: "The RC shows this is owner no. {rc}. Can you clarify how many previous owners the car has had?",
   missing_service_history: "Can you share any service invoices or job cards, since the service book has fewer than 2 dated entries?",
   document_identity_mismatch: "The {field} on the {doc} does not match the RC. Is this document for the same car?",
+  ownership_mismatch_vs_record: "The public vehicle record shows more previous owners than the papers. Can you account for every owner?",
+  identity_mismatch_vs_record: "The public record's chassis/registration does not match the documents. Can you confirm this is the same car?",
+  traffic_violations: "There are traffic violations on record for this vehicle. Have all challans been paid and cleared?",
 };
 
 export function questions(flags: Flag[]) {

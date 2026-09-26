@@ -40,7 +40,7 @@ export interface Extraction {
 
 export interface SellerClaim { claimed_owners: number | null; raw_text?: string; }
 
-export type TLType = "registration" | "service" | "insurance_start" | "insurance_end";
+export type TLType = "registration" | "service" | "insurance_start" | "insurance_end" | "challan";
 
 export interface TLEvent {
   date: string; type: TLType; odometer_km?: number | null; source: string;

@@ -8,6 +8,7 @@ const LABEL: Record<string, string> = {
   service: "Service",
   insurance_start: "Insurance begins",
   insurance_end: "Insurance ends",
+  challan: "Traffic challan",
 };
 
 type Row = TLEvent & { isDrop: boolean; delta: number | null; isBreak: boolean };
@@ -65,6 +66,9 @@ export function Timeline({ events, breakDates }: { events: TLEvent[]; breakDates
               {LABEL[e.type] ?? e.type}
               {typeof e.odometer_km === "number" && (
                 <span className="tnum"> — {e.odometer_km.toLocaleString("en-IN")} km</span>
+              )}
+              {e.type === "challan" && e.note && (
+                <span style={{ fontWeight: 400, color: "var(--warn)" }}> — {e.note}</span>
               )}
               {e.isDrop && e.delta != null && (
                 <span className="tnum" style={{ display: "inline-flex", alignItems: "center", gap: 3, marginLeft: 8, fontWeight: 700 }}>

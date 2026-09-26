@@ -7,6 +7,7 @@ import { Timeline } from "@/components/Timeline";
 import { FlagCard } from "@/components/FlagCard";
 import { PartRiskCard } from "@/components/PartRiskCard";
 import { QuestionSheet } from "@/components/QuestionSheet";
+import { PriceComps } from "@/components/PriceComps";
 import { Check } from "@/components/icons";
 
 const wrap: React.CSSProperties = { maxWidth: 720, margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 22px 96px" };
@@ -110,6 +111,14 @@ export default function ReportPage() {
           {activeCosts.map((p, i) => (
             <PartRiskCard key={i} risk={p} />
           ))}
+        </section>
+      )}
+
+      {r.price_comps.length > 0 && (
+        <section style={section()} aria-labelledby="mkt" data-print="hide">
+          <h2 id="mkt" style={h2}>Similar cars on the market</h2>
+          <p style={sub}>Comparable listings, so you know what this car is really worth.</p>
+          <PriceComps comps={r.price_comps} asking={r.car.asking_price_inr} />
         </section>
       )}
 
