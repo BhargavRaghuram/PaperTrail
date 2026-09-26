@@ -1,0 +1,49 @@
+[
+  {
+    "date": "2020-02-07",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2020-03-15",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 950,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-08-28",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 7600,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-02-10",
+    "type": "service",
+    "service_type": "3rd Free Service",
+    "odometer_km": 14800,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-11-03",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 27000,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2023-09-21",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 35400,
+    "source": "service_book_p1",
+    "note": null
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "date": "2020-10-15",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2020-11-30",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1000,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-05-26",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 7400,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-03-12",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 15900,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2023-02-08",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 24100,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2023-10-15",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202307310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2023-12-19",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 32200,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2024-10-14",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202307310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2024-10-15",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202407327",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2025-10-14",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202407327",
+    "source": "insurance_2"
+  }
+]

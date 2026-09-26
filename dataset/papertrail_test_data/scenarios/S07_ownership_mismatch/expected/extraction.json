@@ -1,0 +1,133 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "AP 99 BR 5520",
+    "registration_date": "2018-09-10",
+    "chassis_number": "MA3FYEB1S00H55204",
+    "engine_number": "K12MP5520488",
+    "owner_name": "Venkata Srinivas Rao",
+    "owner_serial": 3,
+    "maker": "Maruti Suzuki India Ltd",
+    "model": "Baleno Alpha",
+    "fuel": "Petrol",
+    "colour": "Nexa Blue",
+    "month_year_of_mfg": "08/2018",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "AP 99 BR 5520",
+      "chassis_number": "MA3FYEB1S00H55204",
+      "date_of_sale": "2018-09-08",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2018-10-20",
+        "odometer_km": 1150,
+        "service_type": "1st Free Service",
+        "dealer": "Varun Nexa, Vijayawada",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2019-04-18",
+        "odometer_km": 9100,
+        "service_type": "2nd Free Service",
+        "dealer": "Varun Nexa, Vijayawada",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-02-22",
+        "odometer_km": 17800,
+        "service_type": "Paid Service",
+        "dealer": "Varun Nexa, Vijayawada",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-01-09",
+        "odometer_km": 25600,
+        "service_type": "Paid Service",
+        "dealer": "Varun Nexa, Vijayawada",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-12-16",
+        "odometer_km": 33900,
+        "service_type": "Paid Service",
+        "dealer": "Sai Car Care, Guntur",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-11-28",
+        "odometer_km": 42300,
+        "service_type": "Paid Service",
+        "dealer": "Sai Car Care, Guntur",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-10-30",
+        "odometer_km": 50700,
+        "service_type": "Paid Service",
+        "dealer": "Sai Car Care, Guntur",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "NAL-MTR-202207310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "AP 99 BR 5520",
+      "chassis_number": "MA3FYEB1S00H55204",
+      "insured_name": "Venkata Srinivas Rao",
+      "period_start": "2022-09-10",
+      "period_end": "2023-09-09",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "NAL-MTR-202307327",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "AP 99 BR 5520",
+      "chassis_number": "MA3FYEB1S00H55204",
+      "insured_name": "Venkata Srinivas Rao",
+      "period_start": "2023-09-10",
+      "period_end": "2024-09-09",
+      "ncb_percent": 25,
+      "previous_policy_number": "NAL-MTR-202207310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

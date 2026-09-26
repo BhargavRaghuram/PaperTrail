@@ -1,0 +1,103 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "TS 99 EK 7751",
+    "registration_date": "2021-12-01",
+    "chassis_number": "MALPC81DLNM377510",
+    "engine_number": "G4FLNM377510",
+    "owner_name": "Farhan Siddiqui",
+    "owner_serial": 1,
+    "maker": "Hyundai Motor India Ltd",
+    "model": "Creta SX 1.5",
+    "fuel": "Petrol",
+    "colour": "Titan Grey",
+    "month_year_of_mfg": "11/2021",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "TS 99 EK 7751",
+      "chassis_number": "MALPC81DLNM377510",
+      "date_of_sale": "2021-11-29",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2022-01-10",
+        "odometer_km": 1000,
+        "service_type": "1st Free Service",
+        "dealer": "Lakshmi Hyundai, Kukatpally",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-07-05",
+        "odometer_km": 10000,
+        "service_type": "2nd Free Service",
+        "dealer": "Lakshmi Hyundai, Kukatpally",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-01-20",
+        "odometer_km": 100000,
+        "service_type": "Paid Service",
+        "dealer": "Lakshmi Hyundai, Kukatpally",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-08-15",
+        "odometer_km": 108500,
+        "service_type": "Paid Service",
+        "dealer": "Lakshmi Hyundai, Kukatpally",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "SGI/PC/202207310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "TS 99 EK 7751",
+      "chassis_number": "MALPC81DLNM377510",
+      "insured_name": "Farhan Siddiqui",
+      "period_start": "2022-12-01",
+      "period_end": "2023-11-30",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "SGI/PC/202307327",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "TS 99 EK 7751",
+      "chassis_number": "MALPC81DLNM377510",
+      "insured_name": "Farhan Siddiqui",
+      "period_start": "2023-12-01",
+      "period_end": "2024-11-30",
+      "ncb_percent": 25,
+      "previous_policy_number": "SGI/PC/202207310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

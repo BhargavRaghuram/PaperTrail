@@ -1,0 +1,82 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "MH 99 CT 9034",
+    "registration_date": "2020-02-07",
+    "chassis_number": "MAT627031LLB90340",
+    "engine_number": "REVOTRON1290340",
+    "owner_name": "Pooja Deshpande",
+    "owner_serial": 1,
+    "maker": "Tata Motors Ltd",
+    "model": "Nexon XZ+",
+    "fuel": "Petrol",
+    "colour": "Flame Red",
+    "month_year_of_mfg": "01/2020",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "MH 99 CT 9034",
+      "chassis_number": "MAT627031LLB90340",
+      "date_of_sale": "2020-02-05",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2020-03-15",
+        "odometer_km": 950,
+        "service_type": "1st Free Service",
+        "dealer": "Concorde Tata, Baner",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-08-28",
+        "odometer_km": 7600,
+        "service_type": "2nd Free Service",
+        "dealer": "Concorde Tata, Baner",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-02-10",
+        "odometer_km": 14800,
+        "service_type": "3rd Free Service",
+        "dealer": "Concorde Tata, Baner",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-11-03",
+        "odometer_km": 27000,
+        "service_type": "Paid Service",
+        "dealer": "Concorde Tata, Baner",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-09-21",
+        "odometer_km": 35400,
+        "service_type": "Paid Service",
+        "dealer": "Concorde Tata, Baner",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": []
+}

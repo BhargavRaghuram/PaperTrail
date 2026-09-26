@@ -1,0 +1,113 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 MR 7002",
+    "registration_date": "2020-10-15",
+    "chassis_number": "MALBB51BLLM700214",
+    "engine_number": "G4LALM700214",
+    "owner_name": "Shruthi Prakash",
+    "owner_serial": 1,
+    "maker": "Hyundai Motor India Ltd",
+    "model": "i20 Asta 1.2",
+    "fuel": "Petrol",
+    "colour": "Fiery Red",
+    "month_year_of_mfg": "09/2020",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 MR 7082",
+      "chassis_number": "MALBB51BLLM708833",
+      "date_of_sale": "2020-10-13",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2020-11-30",
+        "odometer_km": 1000,
+        "service_type": "1st Free Service",
+        "dealer": "Advaith Hyundai, JP Nagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-05-26",
+        "odometer_km": 7400,
+        "service_type": "2nd Free Service",
+        "dealer": "Advaith Hyundai, JP Nagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-03-12",
+        "odometer_km": 15900,
+        "service_type": "Paid Service",
+        "dealer": "Advaith Hyundai, JP Nagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-02-08",
+        "odometer_km": 24100,
+        "service_type": "Paid Service",
+        "dealer": "Advaith Hyundai, JP Nagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-12-19",
+        "odometer_km": 32200,
+        "service_type": "Paid Service",
+        "dealer": "Advaith Hyundai, JP Nagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "NAL-MTR-202307310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 MR 7002",
+      "chassis_number": "MALBB51BLLM700214",
+      "insured_name": "Shruthi Prakash",
+      "period_start": "2023-10-15",
+      "period_end": "2024-10-14",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "NAL-MTR-202407327",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 MR 7002",
+      "chassis_number": "MALBB51BLLM700214",
+      "insured_name": "Shruthi Prakash",
+      "period_start": "2024-10-15",
+      "period_end": "2025-10-14",
+      "ncb_percent": 25,
+      "previous_policy_number": "NAL-MTR-202307310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+[
+  {
+    "date": "2019-03-18",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2019-05-10",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1200,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2019-11-02",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 8400,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-05-15",
+    "type": "service",
+    "service_type": "3rd Free Service",
+    "odometer_km": 12500,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-11-20",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 23000,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-06-02",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 34200,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-04-11",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 31800,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2023-03-05",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 39900,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2023-03-18",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202307310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2024-02-20",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 47300,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2024-03-17",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202307310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2024-03-18",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202407327",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2025-03-17",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202407327",
+    "source": "insurance_2"
+  }
+]

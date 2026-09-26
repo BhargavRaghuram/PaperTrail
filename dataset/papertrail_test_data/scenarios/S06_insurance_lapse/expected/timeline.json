@@ -1,0 +1,93 @@
+[
+  {
+    "date": "2019-07-01",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2019-08-10",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1000,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-02-14",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 8200,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-12-05",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 16500,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-07-01",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202107310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2021-10-22",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 25300,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-06-30",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202107310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2022-09-15",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202207310",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2022-09-30",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 33000,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2023-08-19",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 41400,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2023-09-14",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202207310",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2023-09-15",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202307327",
+    "source": "insurance_3"
+  },
+  {
+    "date": "2024-09-14",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202307327",
+    "source": "insurance_3"
+  }
+]

@@ -1,0 +1,16 @@
+/.env
+
+# graphify knowledge graph (regenerate with `graphify update .`)
+/graphify-out/
+/.claude
+# Next.js
+/node_modules
+/.next
+/out
+/build
+next-env.d.ts
+*.tsbuildinfo
+
+# SDD workspace
+/.superpowers
+/.vitest

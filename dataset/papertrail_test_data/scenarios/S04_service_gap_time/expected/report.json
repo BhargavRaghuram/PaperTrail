@@ -1,0 +1,22 @@
+{
+  "flags": [
+    {
+      "rule": "service_gap",
+      "severity": "medium",
+      "entries": [
+        "2021-02-10",
+        "2022-11-03"
+      ],
+      "gap_days": 631,
+      "gap_km": 12200,
+      "explanation": "Gap between services: 631 days (> 365)."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "service_gap",
+      "question": "What happened during the gap in service history between 2021-02-10 and 2022-11-03?"
+    }
+  ]
+}

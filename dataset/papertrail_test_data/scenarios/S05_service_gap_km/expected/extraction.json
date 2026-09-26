@@ -1,0 +1,113 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 ZN 6120",
+    "registration_date": "2020-06-22",
+    "chassis_number": "MBJKA3FS2L0612006",
+    "engine_number": "2GD-C612006",
+    "owner_name": "Anil Joseph Mathew",
+    "owner_serial": 1,
+    "maker": "Toyota Kirloskar Motor Pvt Ltd",
+    "model": "Innova Crysta 2.4 VX",
+    "fuel": "Diesel",
+    "colour": "Silver Metallic",
+    "month_year_of_mfg": "05/2020",
+    "financier": "ICICI Bank Ltd",
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 ZN 6120",
+      "chassis_number": "MBJKA3FS2L0612006",
+      "date_of_sale": "2020-06-20",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2020-07-25",
+        "odometer_km": 1100,
+        "service_type": "1st Free Service",
+        "dealer": "Nandi Toyota, Hebbal",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-01-18",
+        "odometer_km": 10200,
+        "service_type": "2nd Free Service",
+        "dealer": "Nandi Toyota, Hebbal",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-08-09",
+        "odometer_km": 20000,
+        "service_type": "Paid Service",
+        "dealer": "Nandi Toyota, Hebbal",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-05-24",
+        "odometer_km": 38500,
+        "service_type": "Paid Service",
+        "dealer": "Nandi Toyota, Hebbal",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-01-30",
+        "odometer_km": 48900,
+        "service_type": "Paid Service",
+        "dealer": "Nandi Toyota, Hebbal",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "NAL-MTR-202207310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 ZN 6120",
+      "chassis_number": "MBJKA3FS2L0612006",
+      "insured_name": "Anil Joseph Mathew",
+      "period_start": "2022-06-22",
+      "period_end": "2023-06-21",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "NAL-MTR-202307327",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 ZN 6120",
+      "chassis_number": "MBJKA3FS2L0612006",
+      "insured_name": "Anil Joseph Mathew",
+      "period_start": "2023-06-22",
+      "period_end": "2024-06-21",
+      "ncb_percent": 25,
+      "previous_policy_number": "NAL-MTR-202207310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

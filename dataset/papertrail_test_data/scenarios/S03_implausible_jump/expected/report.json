@@ -1,0 +1,41 @@
+{
+  "flags": [
+    {
+      "rule": "implausible_mileage_jump",
+      "severity": "medium",
+      "entries": [
+        "2022-07-05",
+        "2023-01-20"
+      ],
+      "values_km": [
+        10000,
+        100000
+      ],
+      "days": 199,
+      "km_per_day": 452.3,
+      "explanation": "90,000 km in 199 days (~452 km/day) exceeds the 150 km/day threshold."
+    },
+    {
+      "rule": "service_gap",
+      "severity": "medium",
+      "entries": [
+        "2022-07-05",
+        "2023-01-20"
+      ],
+      "gap_days": 199,
+      "gap_km": 90000,
+      "explanation": "Gap between services: 90,000 km (> 15,000)."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "implausible_mileage_jump",
+      "question": "The car appears to have covered 90,000 km in 199 days between 2022-07-05 and 2023-01-20. Can you explain this usage?"
+    },
+    {
+      "rule": "service_gap",
+      "question": "What happened during the gap in service history between 2022-07-05 and 2023-01-20?"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 NB 8850",
+    "registration_date": "2020-01-10",
+    "chassis_number": "WVWPJ26R1LT885012",
+    "engine_number": "CJZ885012",
+    "owner_name": "Lavanya Iyer",
+    "owner_serial": 1,
+    "maker": "Volkswagen India Pvt Ltd",
+    "model": "Polo Highline Plus 1.0 TSI",
+    "fuel": "Petrol",
+    "colour": "Flash Red",
+    "month_year_of_mfg": "12/2019",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 NB 8850",
+      "chassis_number": "WVWPJ26R1LT885012",
+      "date_of_sale": "2020-01-08",
+      "source": "service_book_p2"
+    },
+    "entries": [
+      {
+        "date": "2020-02-15",
+        "odometer_km": 1000,
+        "service_type": "1st Free Service",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-01-15",
+        "odometer_km": 14200,
+        "service_type": "Paid Service",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-01-15",
+        "odometer_km": 29200,
+        "service_type": "Paid Service",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-01-15",
+        "odometer_km": 29200,
+        "service_type": "Wheel Alignment",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-08-03",
+        "odometer_km": 34200,
+        "service_type": "Paid Service",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-01-19",
+        "odometer_km": 41000,
+        "service_type": "Paid Service",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2024-01-10",
+        "odometer_km": 49800,
+        "service_type": "Paid Service",
+        "dealer": "Apple Auto VW, Richmond Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "NAL-MTR-202307310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 NB 8850",
+      "chassis_number": "WVWPJ26R1LT885012",
+      "insured_name": "Lavanya Iyer",
+      "period_start": "2023-01-10",
+      "period_end": "2024-01-09",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "NAL-MTR-202407327",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 NB 8850",
+      "chassis_number": "WVWPJ26R1LT885012",
+      "insured_name": "Lavanya Iyer",
+      "period_start": "2024-01-10",
+      "period_end": "2025-01-09",
+      "ncb_percent": 25,
+      "previous_policy_number": "NAL-MTR-202307310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

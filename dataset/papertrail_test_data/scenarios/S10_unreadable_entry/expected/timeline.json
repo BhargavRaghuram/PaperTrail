@@ -1,0 +1,81 @@
+[
+  {
+    "date": "2019-11-20",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2019-12-28",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 900,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-06-30",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 6100,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-04-12",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 13600,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-02-25",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": null,
+    "source": "service_book_p1",
+    "note": "Odometer value obscured by ink blot"
+  },
+  {
+    "date": "2022-12-10",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 31500,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2023-10-04",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 39900,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2023-11-20",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202307310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2024-11-19",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202307310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2024-11-20",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202407327",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2025-11-19",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202407327",
+    "source": "insurance_2"
+  }
+]

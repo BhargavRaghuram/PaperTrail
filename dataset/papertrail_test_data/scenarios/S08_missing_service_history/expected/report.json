@@ -1,0 +1,17 @@
+{
+  "flags": [
+    {
+      "rule": "missing_service_history",
+      "severity": "low",
+      "dated_entries": 1,
+      "explanation": "No maintenance record available — treat as unverified."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "missing_service_history",
+      "question": "Can you share any service invoices or job cards, since the service book has fewer than 2 dated entries?"
+    }
+  ]
+}

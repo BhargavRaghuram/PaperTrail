@@ -1,0 +1,25 @@
+{
+  "flags": [
+    {
+      "rule": "insurance_lapse",
+      "severity": "medium",
+      "entries": [
+        "2022-06-30",
+        "2022-09-15"
+      ],
+      "uninsured_days": 76,
+      "policies": [
+        "SGI/PC/202107310",
+        "NAL-MTR-202207310"
+      ],
+      "explanation": "No insurance cover for 76 days between consecutive policies."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "insurance_lapse",
+      "question": "Why was the car uninsured between 2022-06-30 and 2022-09-15? Was it involved in any incident during that period?"
+    }
+  ]
+}

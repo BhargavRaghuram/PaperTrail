@@ -1,0 +1,126 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 HN 2574",
+    "registration_date": "2019-11-20",
+    "chassis_number": "MEEHBA0A8K2574031",
+    "engine_number": "HR10K2574031",
+    "owner_name": "Mohammed Irfan",
+    "owner_serial": 1,
+    "maker": "Renault India Pvt Ltd",
+    "model": "Kwid RXT 1.0",
+    "fuel": "Petrol",
+    "colour": "Ice Cool White",
+    "month_year_of_mfg": "10/2019",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 HN 2574",
+      "chassis_number": "MEEHBA0A8K2574031",
+      "date_of_sale": "2019-11-18",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2019-12-28",
+        "odometer_km": 900,
+        "service_type": "1st Free Service",
+        "dealer": "Anand Renault, Yeshwanthpur",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-06-30",
+        "odometer_km": 6100,
+        "service_type": "2nd Free Service",
+        "dealer": "Anand Renault, Yeshwanthpur",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-04-12",
+        "odometer_km": 13600,
+        "service_type": "Paid Service",
+        "dealer": "Anand Renault, Yeshwanthpur",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-02-25",
+        "odometer_km": null,
+        "service_type": "Paid Service",
+        "dealer": "Anand Renault, Yeshwanthpur",
+        "source": "service_book_p1",
+        "confidence": "low",
+        "low_confidence_fields": [
+          "odometer_km"
+        ],
+        "notes": "Odometer value obscured by ink blot",
+        "_eval_true_odometer_km": 22800
+      },
+      {
+        "date": "2022-12-10",
+        "odometer_km": 31500,
+        "service_type": "Paid Service",
+        "dealer": "Anand Renault, Yeshwanthpur",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-10-04",
+        "odometer_km": 39900,
+        "service_type": "Paid Service",
+        "dealer": "Anand Renault, Yeshwanthpur",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "SGI/PC/202307310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 HN 2574",
+      "chassis_number": "MEEHBA0A8K2574031",
+      "insured_name": "Mohammed Irfan",
+      "period_start": "2023-11-20",
+      "period_end": "2024-11-19",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "SGI/PC/202407327",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 HN 2574",
+      "chassis_number": "MEEHBA0A8K2574031",
+      "insured_name": "Mohammed Irfan",
+      "period_start": "2024-11-20",
+      "period_end": "2025-11-19",
+      "ncb_percent": 25,
+      "previous_policy_number": "SGI/PC/202307310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

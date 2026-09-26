@@ -1,0 +1,29 @@
+{
+  "flags": [
+    {
+      "rule": "document_identity_mismatch",
+      "severity": "high",
+      "field": "registration_number",
+      "document": "service_book",
+      "rc_value": "KA 99 MR 7002",
+      "document_value": "KA 99 MR 7082",
+      "explanation": "registration_number on service_book (KA 99 MR 7082) does not match RC (KA 99 MR 7002)."
+    },
+    {
+      "rule": "document_identity_mismatch",
+      "severity": "high",
+      "field": "chassis_number",
+      "document": "service_book",
+      "rc_value": "MALBB51BLLM700214",
+      "document_value": "MALBB51BLLM708833",
+      "explanation": "chassis_number on service_book (MALBB51BLLM708833) does not match RC (MALBB51BLLM700214)."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "document_identity_mismatch",
+      "question": "The registration number on the service_book does not match the RC. Is this document for the same car?"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "flags": [],
+  "unreadable_notices": [
+    {
+      "source": "service_book_p1",
+      "field": "odometer_km",
+      "message": "service_book_p1 contains an unreadable odometer km. Please retake the photo."
+    }
+  ],
+  "questions": []
+}

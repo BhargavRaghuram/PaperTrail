@@ -1,0 +1,143 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 SE 4163",
+    "registration_date": "2018-05-02",
+    "chassis_number": "MA3ERLF1S00E41637",
+    "engine_number": "D13A4163711",
+    "owner_name": "Prakash Shetty",
+    "owner_serial": 1,
+    "maker": "Maruti Suzuki India Ltd",
+    "model": "Ertiga VDI",
+    "fuel": "Diesel",
+    "colour": "Magma Grey",
+    "month_year_of_mfg": "04/2018",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 SE 4163",
+      "chassis_number": "MA3ERLF1S00E41637",
+      "date_of_sale": "2018-04-30",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2018-06-12",
+        "odometer_km": 1300,
+        "service_type": "1st Free Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2019-01-08",
+        "odometer_km": 11200,
+        "service_type": "2nd Free Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2019-10-15",
+        "odometer_km": 24900,
+        "service_type": "Paid Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-08-22",
+        "odometer_km": 38600,
+        "service_type": "Paid Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-06-10",
+        "odometer_km": 52300,
+        "service_type": "Paid Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-11-04",
+        "odometer_km": 180,
+        "service_type": "Cluster replaced (warranty)",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": "Instrument cluster replaced under warranty. Old reading 58,950 km. Job card JC/21/11/0442"
+      },
+      {
+        "date": "2022-09-01",
+        "odometer_km": 12900,
+        "service_type": "Paid Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-07-20",
+        "odometer_km": 25400,
+        "service_type": "Paid Service",
+        "dealer": "Mandovi Motors, Mangaluru",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "SGI/PC/202207310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 SE 4163",
+      "chassis_number": "MA3ERLF1S00E41637",
+      "insured_name": "Prakash Shetty",
+      "period_start": "2022-05-02",
+      "period_end": "2023-05-01",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "SGI/PC/202307327",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 SE 4163",
+      "chassis_number": "MA3ERLF1S00E41637",
+      "insured_name": "Prakash Shetty",
+      "period_start": "2023-05-02",
+      "period_end": "2024-05-01",
+      "ncb_percent": 25,
+      "previous_policy_number": "SGI/PC/202207310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

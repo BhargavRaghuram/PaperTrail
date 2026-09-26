@@ -1,0 +1,143 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 MB 2208",
+    "registration_date": "2019-03-18",
+    "chassis_number": "MA3EWDE1S00K22081",
+    "engine_number": "K12MN1182208",
+    "owner_name": "Suresh Babu N",
+    "owner_serial": 1,
+    "maker": "Maruti Suzuki India Ltd",
+    "model": "Swift ZXI",
+    "fuel": "Petrol",
+    "colour": "Pearl Arctic White",
+    "month_year_of_mfg": "01/2019",
+    "financier": "HDFC Bank Ltd",
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 MB 2208",
+      "chassis_number": "MA3EWDE1S00K22081",
+      "date_of_sale": "2019-03-16",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2019-05-10",
+        "odometer_km": 1200,
+        "service_type": "1st Free Service",
+        "dealer": "Nexa Motors, Indiranagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2019-11-02",
+        "odometer_km": 8400,
+        "service_type": "2nd Free Service",
+        "dealer": "Nexa Motors, Indiranagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-05-15",
+        "odometer_km": 12500,
+        "service_type": "3rd Free Service",
+        "dealer": "Nexa Motors, Indiranagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-11-20",
+        "odometer_km": 23000,
+        "service_type": "Paid Service",
+        "dealer": "Nexa Motors, Indiranagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-06-02",
+        "odometer_km": 34200,
+        "service_type": "Paid Service",
+        "dealer": "Nexa Motors, Indiranagar",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-04-11",
+        "odometer_km": 31800,
+        "service_type": "Paid Service",
+        "dealer": "Sri Ganesh Auto Works, BTM",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-03-05",
+        "odometer_km": 39900,
+        "service_type": "Paid Service",
+        "dealer": "Sri Ganesh Auto Works, BTM",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2024-02-20",
+        "odometer_km": 47300,
+        "service_type": "Paid Service",
+        "dealer": "Sri Ganesh Auto Works, BTM",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "NAL-MTR-202307310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 MB 2208",
+      "chassis_number": "MA3EWDE1S00K22081",
+      "insured_name": "Suresh Babu N",
+      "period_start": "2023-03-18",
+      "period_end": "2024-03-17",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "NAL-MTR-202407327",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 MB 2208",
+      "chassis_number": "MA3EWDE1S00K22081",
+      "insured_name": "Suresh Babu N",
+      "period_start": "2024-03-18",
+      "period_end": "2025-03-17",
+      "ncb_percent": 25,
+      "previous_policy_number": "NAL-MTR-202307310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

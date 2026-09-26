@@ -1,0 +1,1732 @@
+[
+  {
+    "id": "S01_clean_single_owner",
+    "title": "Clean history — no flags expected",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single owner, company-serviced, no accidents, genuine 60k km."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 MH 4417",
+        "registration_date": "2019-03-14",
+        "chassis_number": "MAKGM6630KN204417",
+        "engine_number": "L15Z1-3204417",
+        "owner_name": "Ramesh Kumar Hegde",
+        "owner_serial": 1,
+        "maker": "Honda Cars India Ltd",
+        "model": "City 1.5 V MT",
+        "fuel": "Petrol",
+        "colour": "Radiant Red",
+        "month_year_of_mfg": "02/2019",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 MH 4417",
+          "chassis_number": "MAKGM6630KN204417",
+          "date_of_sale": "2019-03-12",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2019-04-20",
+            "odometer_km": 1050,
+            "service_type": "1st Free Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2019-10-12",
+            "odometer_km": 7800,
+            "service_type": "2nd Free Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-09-30",
+            "odometer_km": 16900,
+            "service_type": "Paid Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-06-02",
+            "odometer_km": 24300,
+            "service_type": "Paid Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-05-18",
+            "odometer_km": 33100,
+            "service_type": "Paid Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-04-27",
+            "odometer_km": 41850,
+            "service_type": "Paid Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2024-04-15",
+            "odometer_km": 50200,
+            "service_type": "Paid Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2025-03-30",
+            "odometer_km": 58900,
+            "service_type": "Paid Service",
+            "dealer": "Kaveri Honda, Mysuru Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "SGI/PC/202407310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 MH 4417",
+          "chassis_number": "MAKGM6630KN204417",
+          "insured_name": "Ramesh Kumar Hegde",
+          "period_start": "2024-03-14",
+          "period_end": "2025-03-13",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "SGI/PC/202507327",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 MH 4417",
+          "chassis_number": "MAKGM6630KN204417",
+          "insured_name": "Ramesh Kumar Hegde",
+          "period_start": "2025-03-14",
+          "period_end": "2026-03-13",
+          "ncb_percent": 25,
+          "previous_policy_number": "SGI/PC/202407310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S02_odometer_regression",
+    "title": "Odometer regression (the PRD example: 34,200 → 31,800)",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "First owner. Only 47,000 km driven. All service records available."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 MB 2208",
+        "registration_date": "2019-03-18",
+        "chassis_number": "MA3EWDE1S00K22081",
+        "engine_number": "K12MN1182208",
+        "owner_name": "Suresh Babu N",
+        "owner_serial": 1,
+        "maker": "Maruti Suzuki India Ltd",
+        "model": "Swift ZXI",
+        "fuel": "Petrol",
+        "colour": "Pearl Arctic White",
+        "month_year_of_mfg": "01/2019",
+        "financier": "HDFC Bank Ltd",
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 MB 2208",
+          "chassis_number": "MA3EWDE1S00K22081",
+          "date_of_sale": "2019-03-16",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2019-05-10",
+            "odometer_km": 1200,
+            "service_type": "1st Free Service",
+            "dealer": "Nexa Motors, Indiranagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2019-11-02",
+            "odometer_km": 8400,
+            "service_type": "2nd Free Service",
+            "dealer": "Nexa Motors, Indiranagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-05-15",
+            "odometer_km": 12500,
+            "service_type": "3rd Free Service",
+            "dealer": "Nexa Motors, Indiranagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-11-20",
+            "odometer_km": 23000,
+            "service_type": "Paid Service",
+            "dealer": "Nexa Motors, Indiranagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-06-02",
+            "odometer_km": 34200,
+            "service_type": "Paid Service",
+            "dealer": "Nexa Motors, Indiranagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-04-11",
+            "odometer_km": 31800,
+            "service_type": "Paid Service",
+            "dealer": "Sri Ganesh Auto Works, BTM",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-03-05",
+            "odometer_km": 39900,
+            "service_type": "Paid Service",
+            "dealer": "Sri Ganesh Auto Works, BTM",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2024-02-20",
+            "odometer_km": 47300,
+            "service_type": "Paid Service",
+            "dealer": "Sri Ganesh Auto Works, BTM",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "NAL-MTR-202307310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 MB 2208",
+          "chassis_number": "MA3EWDE1S00K22081",
+          "insured_name": "Suresh Babu N",
+          "period_start": "2023-03-18",
+          "period_end": "2024-03-17",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "NAL-MTR-202407327",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 MB 2208",
+          "chassis_number": "MA3EWDE1S00K22081",
+          "insured_name": "Suresh Babu N",
+          "period_start": "2024-03-18",
+          "period_end": "2025-03-17",
+          "ncb_percent": 25,
+          "previous_policy_number": "NAL-MTR-202307310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "odometer_regression"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S03_implausible_jump",
+    "title": "Implausible mileage jump (10,000 → 100,000 km in ~6.5 months)",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single owner, highway usage, well maintained."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "TS 99 EK 7751",
+        "registration_date": "2021-12-01",
+        "chassis_number": "MALPC81DLNM377510",
+        "engine_number": "G4FLNM377510",
+        "owner_name": "Farhan Siddiqui",
+        "owner_serial": 1,
+        "maker": "Hyundai Motor India Ltd",
+        "model": "Creta SX 1.5",
+        "fuel": "Petrol",
+        "colour": "Titan Grey",
+        "month_year_of_mfg": "11/2021",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "TS 99 EK 7751",
+          "chassis_number": "MALPC81DLNM377510",
+          "date_of_sale": "2021-11-29",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2022-01-10",
+            "odometer_km": 1000,
+            "service_type": "1st Free Service",
+            "dealer": "Lakshmi Hyundai, Kukatpally",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-07-05",
+            "odometer_km": 10000,
+            "service_type": "2nd Free Service",
+            "dealer": "Lakshmi Hyundai, Kukatpally",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-01-20",
+            "odometer_km": 100000,
+            "service_type": "Paid Service",
+            "dealer": "Lakshmi Hyundai, Kukatpally",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-08-15",
+            "odometer_km": 108500,
+            "service_type": "Paid Service",
+            "dealer": "Lakshmi Hyundai, Kukatpally",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "SGI/PC/202207310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "TS 99 EK 7751",
+          "chassis_number": "MALPC81DLNM377510",
+          "insured_name": "Farhan Siddiqui",
+          "period_start": "2022-12-01",
+          "period_end": "2023-11-30",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "SGI/PC/202307327",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "TS 99 EK 7751",
+          "chassis_number": "MALPC81DLNM377510",
+          "insured_name": "Farhan Siddiqui",
+          "period_start": "2023-12-01",
+          "period_end": "2024-11-30",
+          "ncb_percent": 25,
+          "previous_policy_number": "SGI/PC/202207310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "implausible_mileage_jump",
+      "service_gap"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S04_service_gap_time",
+    "title": "Service gap by time (≈21 months) — insurance NOT uploaded",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "One owner, regularly serviced at Tata."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "MH 99 CT 9034",
+        "registration_date": "2020-02-07",
+        "chassis_number": "MAT627031LLB90340",
+        "engine_number": "REVOTRON1290340",
+        "owner_name": "Pooja Deshpande",
+        "owner_serial": 1,
+        "maker": "Tata Motors Ltd",
+        "model": "Nexon XZ+",
+        "fuel": "Petrol",
+        "colour": "Flame Red",
+        "month_year_of_mfg": "01/2020",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "MH 99 CT 9034",
+          "chassis_number": "MAT627031LLB90340",
+          "date_of_sale": "2020-02-05",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2020-03-15",
+            "odometer_km": 950,
+            "service_type": "1st Free Service",
+            "dealer": "Concorde Tata, Baner",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-08-28",
+            "odometer_km": 7600,
+            "service_type": "2nd Free Service",
+            "dealer": "Concorde Tata, Baner",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-02-10",
+            "odometer_km": 14800,
+            "service_type": "3rd Free Service",
+            "dealer": "Concorde Tata, Baner",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-11-03",
+            "odometer_km": 27000,
+            "service_type": "Paid Service",
+            "dealer": "Concorde Tata, Baner",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-09-21",
+            "odometer_km": 35400,
+            "service_type": "Paid Service",
+            "dealer": "Concorde Tata, Baner",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": []
+    },
+    "expected_rules": [
+      "service_gap"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S05_service_gap_km",
+    "title": "Service gap by distance (18,500 km between services, <12 months)",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Family car, single owner, Toyota serviced."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 ZN 6120",
+        "registration_date": "2020-06-22",
+        "chassis_number": "MBJKA3FS2L0612006",
+        "engine_number": "2GD-C612006",
+        "owner_name": "Anil Joseph Mathew",
+        "owner_serial": 1,
+        "maker": "Toyota Kirloskar Motor Pvt Ltd",
+        "model": "Innova Crysta 2.4 VX",
+        "fuel": "Diesel",
+        "colour": "Silver Metallic",
+        "month_year_of_mfg": "05/2020",
+        "financier": "ICICI Bank Ltd",
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 ZN 6120",
+          "chassis_number": "MBJKA3FS2L0612006",
+          "date_of_sale": "2020-06-20",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2020-07-25",
+            "odometer_km": 1100,
+            "service_type": "1st Free Service",
+            "dealer": "Nandi Toyota, Hebbal",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-01-18",
+            "odometer_km": 10200,
+            "service_type": "2nd Free Service",
+            "dealer": "Nandi Toyota, Hebbal",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-08-09",
+            "odometer_km": 20000,
+            "service_type": "Paid Service",
+            "dealer": "Nandi Toyota, Hebbal",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-05-24",
+            "odometer_km": 38500,
+            "service_type": "Paid Service",
+            "dealer": "Nandi Toyota, Hebbal",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-01-30",
+            "odometer_km": 48900,
+            "service_type": "Paid Service",
+            "dealer": "Nandi Toyota, Hebbal",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "NAL-MTR-202207310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 ZN 6120",
+          "chassis_number": "MBJKA3FS2L0612006",
+          "insured_name": "Anil Joseph Mathew",
+          "period_start": "2022-06-22",
+          "period_end": "2023-06-21",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "NAL-MTR-202307327",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 ZN 6120",
+          "chassis_number": "MBJKA3FS2L0612006",
+          "insured_name": "Anil Joseph Mathew",
+          "period_start": "2023-06-22",
+          "period_end": "2024-06-21",
+          "ncb_percent": 25,
+          "previous_policy_number": "NAL-MTR-202207310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "service_gap"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S06_insurance_lapse",
+    "title": "Insurance lapse (76 days uninsured, NCB reset to 0%)",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Always insured, zero claims, single owner."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 P 3381",
+        "registration_date": "2019-07-01",
+        "chassis_number": "MZBSP2SX3KL033810",
+        "engine_number": "G4FGKL033810",
+        "owner_name": "Deepa Raghavan",
+        "owner_serial": 1,
+        "maker": "Kia India Pvt Ltd",
+        "model": "Seltos HTX 1.5",
+        "fuel": "Petrol",
+        "colour": "Gravity Grey",
+        "month_year_of_mfg": "06/2019",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 P 3381",
+          "chassis_number": "MZBSP2SX3KL033810",
+          "date_of_sale": "2019-06-29",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2019-08-10",
+            "odometer_km": 1000,
+            "service_type": "1st Free Service",
+            "dealer": "Pinnacle Kia, Whitefield",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-02-14",
+            "odometer_km": 8200,
+            "service_type": "2nd Free Service",
+            "dealer": "Pinnacle Kia, Whitefield",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-12-05",
+            "odometer_km": 16500,
+            "service_type": "Paid Service",
+            "dealer": "Pinnacle Kia, Whitefield",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-10-22",
+            "odometer_km": 25300,
+            "service_type": "Paid Service",
+            "dealer": "Pinnacle Kia, Whitefield",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-09-30",
+            "odometer_km": 33000,
+            "service_type": "Paid Service",
+            "dealer": "Pinnacle Kia, Whitefield",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-08-19",
+            "odometer_km": 41400,
+            "service_type": "Paid Service",
+            "dealer": "Pinnacle Kia, Whitefield",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "SGI/PC/202107310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 P 3381",
+          "chassis_number": "MZBSP2SX3KL033810",
+          "insured_name": "Deepa Raghavan",
+          "period_start": "2021-07-01",
+          "period_end": "2022-06-30",
+          "ncb_percent": 35,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "NAL-MTR-202207310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 P 3381",
+          "chassis_number": "MZBSP2SX3KL033810",
+          "insured_name": "Deepa Raghavan",
+          "period_start": "2022-09-15",
+          "period_end": "2023-09-14",
+          "ncb_percent": 0,
+          "previous_policy_number": "SGI/PC/202107310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_3",
+          "policy_number": "NAL-MTR-202307327",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 P 3381",
+          "chassis_number": "MZBSP2SX3KL033810",
+          "insured_name": "Deepa Raghavan",
+          "period_start": "2023-09-15",
+          "period_end": "2024-09-14",
+          "ncb_percent": 20,
+          "previous_policy_number": "NAL-MTR-202207310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "insurance_lapse"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S07_ownership_mismatch",
+    "title": "Ownership mismatch (RC owner serial 3, seller says single owner)",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single owner car, bought new by me. Selling due to relocation."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "AP 99 BR 5520",
+        "registration_date": "2018-09-10",
+        "chassis_number": "MA3FYEB1S00H55204",
+        "engine_number": "K12MP5520488",
+        "owner_name": "Venkata Srinivas Rao",
+        "owner_serial": 3,
+        "maker": "Maruti Suzuki India Ltd",
+        "model": "Baleno Alpha",
+        "fuel": "Petrol",
+        "colour": "Nexa Blue",
+        "month_year_of_mfg": "08/2018",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "AP 99 BR 5520",
+          "chassis_number": "MA3FYEB1S00H55204",
+          "date_of_sale": "2018-09-08",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2018-10-20",
+            "odometer_km": 1150,
+            "service_type": "1st Free Service",
+            "dealer": "Varun Nexa, Vijayawada",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2019-04-18",
+            "odometer_km": 9100,
+            "service_type": "2nd Free Service",
+            "dealer": "Varun Nexa, Vijayawada",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-02-22",
+            "odometer_km": 17800,
+            "service_type": "Paid Service",
+            "dealer": "Varun Nexa, Vijayawada",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-01-09",
+            "odometer_km": 25600,
+            "service_type": "Paid Service",
+            "dealer": "Varun Nexa, Vijayawada",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-12-16",
+            "odometer_km": 33900,
+            "service_type": "Paid Service",
+            "dealer": "Sai Car Care, Guntur",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-11-28",
+            "odometer_km": 42300,
+            "service_type": "Paid Service",
+            "dealer": "Sai Car Care, Guntur",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-10-30",
+            "odometer_km": 50700,
+            "service_type": "Paid Service",
+            "dealer": "Sai Car Care, Guntur",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "NAL-MTR-202207310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "AP 99 BR 5520",
+          "chassis_number": "MA3FYEB1S00H55204",
+          "insured_name": "Venkata Srinivas Rao",
+          "period_start": "2022-09-10",
+          "period_end": "2023-09-09",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "NAL-MTR-202307327",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "AP 99 BR 5520",
+          "chassis_number": "MA3FYEB1S00H55204",
+          "insured_name": "Venkata Srinivas Rao",
+          "period_start": "2023-09-10",
+          "period_end": "2024-09-09",
+          "ncb_percent": 25,
+          "previous_policy_number": "NAL-MTR-202207310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "ownership_mismatch"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S08_missing_service_history",
+    "title": "Missing service history (only one dated entry)",
+    "seller_claim": {
+      "claimed_owners": 2,
+      "raw_text": "Second owner. Service book misplaced, servicing done at local garage."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 EQ 1809",
+        "registration_date": "2021-04-05",
+        "chassis_number": "MA1TA2MA5M2B18090",
+        "engine_number": "MHAWKB18090",
+        "owner_name": "Kiran Gowda",
+        "owner_serial": 2,
+        "maker": "Mahindra & Mahindra Ltd",
+        "model": "XUV300 W8",
+        "fuel": "Diesel",
+        "colour": "Aquamarine",
+        "month_year_of_mfg": "03/2021",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 EQ 1809",
+          "chassis_number": "MA1TA2MA5M2B18090",
+          "date_of_sale": "2021-04-03",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2021-05-20",
+            "odometer_km": 1200,
+            "service_type": "1st Free Service",
+            "dealer": "Bhoomi Mahindra, Tumakuru",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": null,
+            "odometer_km": null,
+            "service_type": "2nd Free Service",
+            "dealer": "Bhoomi Mahindra, Tumakuru",
+            "source": "service_book_p1",
+            "confidence": "medium",
+            "low_confidence_fields": [],
+            "notes": "Row stamped by dealer but date and odometer were never written"
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "SGI/PC/202407310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 EQ 1809",
+          "chassis_number": "MA1TA2MA5M2B18090",
+          "insured_name": "Kiran Gowda",
+          "period_start": "2024-04-05",
+          "period_end": "2025-04-04",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "SGI/PC/202507327",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 EQ 1809",
+          "chassis_number": "MA1TA2MA5M2B18090",
+          "insured_name": "Kiran Gowda",
+          "period_start": "2025-04-05",
+          "period_end": "2026-04-04",
+          "ncb_percent": 25,
+          "previous_policy_number": "SGI/PC/202407310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "missing_service_history"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S09_document_identity_mismatch",
+    "title": "Document identity mismatch (service book chassis ≠ RC chassis)",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "One owner, full Hyundai service history."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 MR 7002",
+        "registration_date": "2020-10-15",
+        "chassis_number": "MALBB51BLLM700214",
+        "engine_number": "G4LALM700214",
+        "owner_name": "Shruthi Prakash",
+        "owner_serial": 1,
+        "maker": "Hyundai Motor India Ltd",
+        "model": "i20 Asta 1.2",
+        "fuel": "Petrol",
+        "colour": "Fiery Red",
+        "month_year_of_mfg": "09/2020",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 MR 7082",
+          "chassis_number": "MALBB51BLLM708833",
+          "date_of_sale": "2020-10-13",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2020-11-30",
+            "odometer_km": 1000,
+            "service_type": "1st Free Service",
+            "dealer": "Advaith Hyundai, JP Nagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-05-26",
+            "odometer_km": 7400,
+            "service_type": "2nd Free Service",
+            "dealer": "Advaith Hyundai, JP Nagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-03-12",
+            "odometer_km": 15900,
+            "service_type": "Paid Service",
+            "dealer": "Advaith Hyundai, JP Nagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-02-08",
+            "odometer_km": 24100,
+            "service_type": "Paid Service",
+            "dealer": "Advaith Hyundai, JP Nagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-12-19",
+            "odometer_km": 32200,
+            "service_type": "Paid Service",
+            "dealer": "Advaith Hyundai, JP Nagar",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "NAL-MTR-202307310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 MR 7002",
+          "chassis_number": "MALBB51BLLM700214",
+          "insured_name": "Shruthi Prakash",
+          "period_start": "2023-10-15",
+          "period_end": "2024-10-14",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "NAL-MTR-202407327",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 MR 7002",
+          "chassis_number": "MALBB51BLLM700214",
+          "insured_name": "Shruthi Prakash",
+          "period_start": "2024-10-15",
+          "period_end": "2025-10-14",
+          "ncb_percent": 25,
+          "previous_policy_number": "NAL-MTR-202307310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "document_identity_mismatch"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S10_unreadable_entry",
+    "title": "Unreadable odometer (ink blot) + blurry photo",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single owner, 40k km, all dealer service."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 HN 2574",
+        "registration_date": "2019-11-20",
+        "chassis_number": "MEEHBA0A8K2574031",
+        "engine_number": "HR10K2574031",
+        "owner_name": "Mohammed Irfan",
+        "owner_serial": 1,
+        "maker": "Renault India Pvt Ltd",
+        "model": "Kwid RXT 1.0",
+        "fuel": "Petrol",
+        "colour": "Ice Cool White",
+        "month_year_of_mfg": "10/2019",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 HN 2574",
+          "chassis_number": "MEEHBA0A8K2574031",
+          "date_of_sale": "2019-11-18",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2019-12-28",
+            "odometer_km": 900,
+            "service_type": "1st Free Service",
+            "dealer": "Anand Renault, Yeshwanthpur",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-06-30",
+            "odometer_km": 6100,
+            "service_type": "2nd Free Service",
+            "dealer": "Anand Renault, Yeshwanthpur",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-04-12",
+            "odometer_km": 13600,
+            "service_type": "Paid Service",
+            "dealer": "Anand Renault, Yeshwanthpur",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-02-25",
+            "odometer_km": null,
+            "service_type": "Paid Service",
+            "dealer": "Anand Renault, Yeshwanthpur",
+            "source": "service_book_p1",
+            "confidence": "low",
+            "low_confidence_fields": [
+              "odometer_km"
+            ],
+            "notes": "Odometer value obscured by ink blot",
+            "_eval_true_odometer_km": 22800
+          },
+          {
+            "date": "2022-12-10",
+            "odometer_km": 31500,
+            "service_type": "Paid Service",
+            "dealer": "Anand Renault, Yeshwanthpur",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-10-04",
+            "odometer_km": 39900,
+            "service_type": "Paid Service",
+            "dealer": "Anand Renault, Yeshwanthpur",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "SGI/PC/202307310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 HN 2574",
+          "chassis_number": "MEEHBA0A8K2574031",
+          "insured_name": "Mohammed Irfan",
+          "period_start": "2023-11-20",
+          "period_end": "2024-11-19",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "SGI/PC/202407327",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 HN 2574",
+          "chassis_number": "MEEHBA0A8K2574031",
+          "insured_name": "Mohammed Irfan",
+          "period_start": "2024-11-20",
+          "period_end": "2025-11-19",
+          "ncb_percent": 25,
+          "previous_policy_number": "SGI/PC/202307310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [],
+    "expected_unreadable": 1
+  },
+  {
+    "id": "S11_boundaries_and_formats",
+    "title": "Boundary values + messy formats — no flags expected",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single lady owner, VW serviced."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 NB 8850",
+        "registration_date": "2020-01-10",
+        "chassis_number": "WVWPJ26R1LT885012",
+        "engine_number": "CJZ885012",
+        "owner_name": "Lavanya Iyer",
+        "owner_serial": 1,
+        "maker": "Volkswagen India Pvt Ltd",
+        "model": "Polo Highline Plus 1.0 TSI",
+        "fuel": "Petrol",
+        "colour": "Flash Red",
+        "month_year_of_mfg": "12/2019",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 NB 8850",
+          "chassis_number": "WVWPJ26R1LT885012",
+          "date_of_sale": "2020-01-08",
+          "source": "service_book_p2"
+        },
+        "entries": [
+          {
+            "date": "2020-02-15",
+            "odometer_km": 1000,
+            "service_type": "1st Free Service",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-01-15",
+            "odometer_km": 14200,
+            "service_type": "Paid Service",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-01-15",
+            "odometer_km": 29200,
+            "service_type": "Paid Service",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-01-15",
+            "odometer_km": 29200,
+            "service_type": "Wheel Alignment",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-08-03",
+            "odometer_km": 34200,
+            "service_type": "Paid Service",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-01-19",
+            "odometer_km": 41000,
+            "service_type": "Paid Service",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2024-01-10",
+            "odometer_km": 49800,
+            "service_type": "Paid Service",
+            "dealer": "Apple Auto VW, Richmond Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "NAL-MTR-202307310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 NB 8850",
+          "chassis_number": "WVWPJ26R1LT885012",
+          "insured_name": "Lavanya Iyer",
+          "period_start": "2023-01-10",
+          "period_end": "2024-01-09",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "NAL-MTR-202407327",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 NB 8850",
+          "chassis_number": "WVWPJ26R1LT885012",
+          "insured_name": "Lavanya Iyer",
+          "period_start": "2024-01-10",
+          "period_end": "2025-01-09",
+          "ncb_percent": 25,
+          "previous_policy_number": "NAL-MTR-202307310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S12_meter_replaced_documented",
+    "title": "Regression WITH a documented instrument-cluster replacement",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single owner. Meter was replaced by company, total run approx 84k."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 SE 4163",
+        "registration_date": "2018-05-02",
+        "chassis_number": "MA3ERLF1S00E41637",
+        "engine_number": "D13A4163711",
+        "owner_name": "Prakash Shetty",
+        "owner_serial": 1,
+        "maker": "Maruti Suzuki India Ltd",
+        "model": "Ertiga VDI",
+        "fuel": "Diesel",
+        "colour": "Magma Grey",
+        "month_year_of_mfg": "04/2018",
+        "financier": null,
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 SE 4163",
+          "chassis_number": "MA3ERLF1S00E41637",
+          "date_of_sale": "2018-04-30",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2018-06-12",
+            "odometer_km": 1300,
+            "service_type": "1st Free Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2019-01-08",
+            "odometer_km": 11200,
+            "service_type": "2nd Free Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2019-10-15",
+            "odometer_km": 24900,
+            "service_type": "Paid Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2020-08-22",
+            "odometer_km": 38600,
+            "service_type": "Paid Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-06-10",
+            "odometer_km": 52300,
+            "service_type": "Paid Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-11-04",
+            "odometer_km": 180,
+            "service_type": "Cluster replaced (warranty)",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": "Instrument cluster replaced under warranty. Old reading 58,950 km. Job card JC/21/11/0442"
+          },
+          {
+            "date": "2022-09-01",
+            "odometer_km": 12900,
+            "service_type": "Paid Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2023-07-20",
+            "odometer_km": 25400,
+            "service_type": "Paid Service",
+            "dealer": "Mandovi Motors, Mangaluru",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "SGI/PC/202207310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 SE 4163",
+          "chassis_number": "MA3ERLF1S00E41637",
+          "insured_name": "Prakash Shetty",
+          "period_start": "2022-05-02",
+          "period_end": "2023-05-01",
+          "ncb_percent": 20,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "SGI/PC/202307327",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 SE 4163",
+          "chassis_number": "MA3ERLF1S00E41637",
+          "insured_name": "Prakash Shetty",
+          "period_start": "2023-05-02",
+          "period_end": "2024-05-01",
+          "ncb_percent": 25,
+          "previous_policy_number": "SGI/PC/202207310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "odometer_regression"
+    ],
+    "expected_unreadable": 0
+  },
+  {
+    "id": "S13_multi_flag_demo",
+    "title": "Kitchen sink — regression + service gap + insurance lapse + ownership mismatch",
+    "seller_claim": {
+      "claimed_owners": 1,
+      "raw_text": "Single owner, 48k km, never missed insurance, full service history."
+    },
+    "extraction": {
+      "rc": {
+        "document_type": "rc",
+        "source": "rc",
+        "registration_number": "KA 99 JD 6645",
+        "registration_date": "2018-02-20",
+        "chassis_number": "MA3EYD81S00C66452",
+        "engine_number": "D13A6645219",
+        "owner_name": "Naveen Chandra",
+        "owner_serial": 2,
+        "maker": "Maruti Suzuki India Ltd",
+        "model": "Dzire ZDI",
+        "fuel": "Diesel",
+        "colour": "Oxford Blue",
+        "month_year_of_mfg": "01/2018",
+        "financier": "Bajaj Finance Ltd",
+        "confidence": "high",
+        "low_confidence_fields": []
+      },
+      "service_book": {
+        "document_type": "service_book",
+        "vehicle": {
+          "registration_number": "KA 99 JD 6645",
+          "chassis_number": "MA3EYD81S00C66452",
+          "date_of_sale": "2018-02-18",
+          "source": "service_book_p1"
+        },
+        "entries": [
+          {
+            "date": "2018-03-30",
+            "odometer_km": 1400,
+            "service_type": "1st Free Service",
+            "dealer": "Sai Service, Koramangala",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2018-10-11",
+            "odometer_km": 12100,
+            "service_type": "2nd Free Service",
+            "dealer": "Sai Service, Koramangala",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2019-07-06",
+            "odometer_km": 26700,
+            "service_type": "Paid Service",
+            "dealer": "Sai Service, Koramangala",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2021-03-18",
+            "odometer_km": 41800,
+            "service_type": "Paid Service",
+            "dealer": "Friends Auto Garage, Hosur Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-01-27",
+            "odometer_km": 38900,
+            "service_type": "Paid Service",
+            "dealer": "Friends Auto Garage, Hosur Rd",
+            "source": "service_book_p1",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          },
+          {
+            "date": "2022-11-14",
+            "odometer_km": 47600,
+            "service_type": "Paid Service",
+            "dealer": "Friends Auto Garage, Hosur Rd",
+            "source": "service_book_p2",
+            "confidence": "high",
+            "low_confidence_fields": [],
+            "notes": null
+          }
+        ]
+      },
+      "insurance": [
+        {
+          "document_type": "insurance",
+          "source": "insurance_1",
+          "policy_number": "NAL-MTR-202107310",
+          "insurer": "Navrang Assurance Ltd.",
+          "registration_number": "KA 99 JD 6645",
+          "chassis_number": "MA3EYD81S00C66452",
+          "insured_name": "Naveen Chandra",
+          "period_start": "2021-02-20",
+          "period_end": "2022-02-19",
+          "ncb_percent": 25,
+          "previous_policy_number": null,
+          "confidence": "high",
+          "low_confidence_fields": []
+        },
+        {
+          "document_type": "insurance",
+          "source": "insurance_2",
+          "policy_number": "SGI/PC/202207310",
+          "insurer": "Suraksha General Insurance Co. Ltd.",
+          "registration_number": "KA 99 JD 6645",
+          "chassis_number": "MA3EYD81S00C66452",
+          "insured_name": "Naveen Chandra",
+          "period_start": "2022-06-01",
+          "period_end": "2023-05-31",
+          "ncb_percent": 0,
+          "previous_policy_number": "NAL-MTR-202107310",
+          "confidence": "high",
+          "low_confidence_fields": []
+        }
+      ]
+    },
+    "expected_rules": [
+      "insurance_lapse",
+      "odometer_regression",
+      "ownership_mismatch",
+      "service_gap"
+    ],
+    "expected_unreadable": 0
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "date": "2019-03-14",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2019-04-20",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1050,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2019-10-12",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 7800,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-09-30",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 16900,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-06-02",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 24300,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-05-18",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 33100,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2023-04-27",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 41850,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2024-03-14",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202407310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2024-04-15",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 50200,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2025-03-13",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202407310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2025-03-14",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202507327",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2025-03-30",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 58900,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2026-03-13",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202507327",
+    "source": "insurance_2"
+  }
+]

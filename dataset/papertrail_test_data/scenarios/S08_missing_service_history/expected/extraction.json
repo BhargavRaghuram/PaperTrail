@@ -1,0 +1,83 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 EQ 1809",
+    "registration_date": "2021-04-05",
+    "chassis_number": "MA1TA2MA5M2B18090",
+    "engine_number": "MHAWKB18090",
+    "owner_name": "Kiran Gowda",
+    "owner_serial": 2,
+    "maker": "Mahindra & Mahindra Ltd",
+    "model": "XUV300 W8",
+    "fuel": "Diesel",
+    "colour": "Aquamarine",
+    "month_year_of_mfg": "03/2021",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 EQ 1809",
+      "chassis_number": "MA1TA2MA5M2B18090",
+      "date_of_sale": "2021-04-03",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2021-05-20",
+        "odometer_km": 1200,
+        "service_type": "1st Free Service",
+        "dealer": "Bhoomi Mahindra, Tumakuru",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": null,
+        "odometer_km": null,
+        "service_type": "2nd Free Service",
+        "dealer": "Bhoomi Mahindra, Tumakuru",
+        "source": "service_book_p1",
+        "confidence": "medium",
+        "low_confidence_fields": [],
+        "notes": "Row stamped by dealer but date and odometer were never written"
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "SGI/PC/202407310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 EQ 1809",
+      "chassis_number": "MA1TA2MA5M2B18090",
+      "insured_name": "Kiran Gowda",
+      "period_start": "2024-04-05",
+      "period_end": "2025-04-04",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "SGI/PC/202507327",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 EQ 1809",
+      "chassis_number": "MA1TA2MA5M2B18090",
+      "insured_name": "Kiran Gowda",
+      "period_start": "2025-04-05",
+      "period_end": "2026-04-04",
+      "ncb_percent": 25,
+      "previous_policy_number": "SGI/PC/202407310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

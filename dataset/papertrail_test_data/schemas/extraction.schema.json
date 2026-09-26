@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaperTrail extraction output (matches expected/extraction.json in every scenario)",
+  "type": "object",
+  "required": ["rc", "service_book", "insurance"],
+  "$defs": {
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "isoDate": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"}
+  },
+  "properties": {
+    "rc": {
+      "type": ["object", "null"],
+      "required": ["document_type", "source", "registration_number", "registration_date", "chassis_number", "owner_serial", "confidence"],
+      "properties": {
+        "document_type": {"const": "rc"},
+        "source": {"type": "string"},
+        "registration_number": {"type": "string"},
+        "registration_date": {"$ref": "#/$defs/isoDate"},
+        "chassis_number": {"type": "string"},
+        "engine_number": {"type": "string"},
+        "owner_name": {"type": "string"},
+        "owner_serial": {"type": ["integer", "null"]},
+        "maker": {"type": "string"}, "model": {"type": "string"}, "fuel": {"type": "string"},
+        "financier": {"type": ["string", "null"]},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "low_confidence_fields": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "service_book": {
+      "type": ["object", "null"],
+      "required": ["document_type", "entries"],
+      "properties": {
+        "document_type": {"const": "service_book"},
+        "vehicle": {"type": "object", "properties": {
+          "registration_number": {"type": ["string", "null"]}, "chassis_number": {"type": ["string", "null"]},
+          "date_of_sale": {"$ref": "#/$defs/isoDate"}, "source": {"type": "string"}}},
+        "entries": {"type": "array", "items": {
+          "type": "object", "required": ["date", "odometer_km", "source", "confidence"],
+          "properties": {
+            "date": {"$ref": "#/$defs/isoDate"},
+            "odometer_km": {"type": ["integer", "null"]},
+            "service_type": {"type": ["string", "null"]},
+            "dealer": {"type": ["string", "null"]},
+            "source": {"type": "string", "description": "image file stem, e.g. service_book_p2"},
+            "confidence": {"$ref": "#/$defs/confidence"},
+            "low_confidence_fields": {"type": "array", "items": {"type": "string"}},
+            "notes": {"type": ["string", "null"]}
+          }}}
+      }
+    },
+    "insurance": {"type": "array", "items": {
+      "type": "object", "required": ["document_type", "source", "policy_number", "period_start", "period_end"],
+      "properties": {
+        "document_type": {"const": "insurance"}, "source": {"type": "string"},
+        "policy_number": {"type": "string"}, "insurer": {"type": "string"},
+        "registration_number": {"type": "string"}, "chassis_number": {"type": "string"},
+        "period_start": {"$ref": "#/$defs/isoDate"}, "period_end": {"$ref": "#/$defs/isoDate"},
+        "ncb_percent": {"type": ["integer", "null"]}, "previous_policy_number": {"type": ["string", "null"]},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "low_confidence_fields": {"type": "array", "items": {"type": "string"}}
+      }}}
+  }
+}

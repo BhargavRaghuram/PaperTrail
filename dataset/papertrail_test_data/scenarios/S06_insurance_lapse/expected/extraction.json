@@ -1,0 +1,138 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 P 3381",
+    "registration_date": "2019-07-01",
+    "chassis_number": "MZBSP2SX3KL033810",
+    "engine_number": "G4FGKL033810",
+    "owner_name": "Deepa Raghavan",
+    "owner_serial": 1,
+    "maker": "Kia India Pvt Ltd",
+    "model": "Seltos HTX 1.5",
+    "fuel": "Petrol",
+    "colour": "Gravity Grey",
+    "month_year_of_mfg": "06/2019",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 P 3381",
+      "chassis_number": "MZBSP2SX3KL033810",
+      "date_of_sale": "2019-06-29",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2019-08-10",
+        "odometer_km": 1000,
+        "service_type": "1st Free Service",
+        "dealer": "Pinnacle Kia, Whitefield",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-02-14",
+        "odometer_km": 8200,
+        "service_type": "2nd Free Service",
+        "dealer": "Pinnacle Kia, Whitefield",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-12-05",
+        "odometer_km": 16500,
+        "service_type": "Paid Service",
+        "dealer": "Pinnacle Kia, Whitefield",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-10-22",
+        "odometer_km": 25300,
+        "service_type": "Paid Service",
+        "dealer": "Pinnacle Kia, Whitefield",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-09-30",
+        "odometer_km": 33000,
+        "service_type": "Paid Service",
+        "dealer": "Pinnacle Kia, Whitefield",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-08-19",
+        "odometer_km": 41400,
+        "service_type": "Paid Service",
+        "dealer": "Pinnacle Kia, Whitefield",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "SGI/PC/202107310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 P 3381",
+      "chassis_number": "MZBSP2SX3KL033810",
+      "insured_name": "Deepa Raghavan",
+      "period_start": "2021-07-01",
+      "period_end": "2022-06-30",
+      "ncb_percent": 35,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "NAL-MTR-202207310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 P 3381",
+      "chassis_number": "MZBSP2SX3KL033810",
+      "insured_name": "Deepa Raghavan",
+      "period_start": "2022-09-15",
+      "period_end": "2023-09-14",
+      "ncb_percent": 0,
+      "previous_policy_number": "SGI/PC/202107310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_3",
+      "policy_number": "NAL-MTR-202307327",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 P 3381",
+      "chassis_number": "MZBSP2SX3KL033810",
+      "insured_name": "Deepa Raghavan",
+      "period_start": "2023-09-15",
+      "period_end": "2024-09-14",
+      "ncb_percent": 20,
+      "previous_policy_number": "NAL-MTR-202207310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

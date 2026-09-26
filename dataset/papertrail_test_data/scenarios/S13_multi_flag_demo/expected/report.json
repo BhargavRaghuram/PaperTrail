@@ -1,0 +1,72 @@
+{
+  "flags": [
+    {
+      "rule": "odometer_regression",
+      "severity": "high",
+      "entries": [
+        "2021-03-18",
+        "2022-01-27"
+      ],
+      "values_km": [
+        41800,
+        38900
+      ],
+      "sources": [
+        "service_book_p1",
+        "service_book_p1"
+      ],
+      "explanation": "Mileage decreased from 41,800 km to 38,900 km between two dated records."
+    },
+    {
+      "rule": "service_gap",
+      "severity": "medium",
+      "entries": [
+        "2019-07-06",
+        "2021-03-18"
+      ],
+      "gap_days": 621,
+      "gap_km": 15100,
+      "explanation": "Gap between services: 621 days (> 365) and 15,100 km (> 15,000)."
+    },
+    {
+      "rule": "insurance_lapse",
+      "severity": "medium",
+      "entries": [
+        "2022-02-19",
+        "2022-06-01"
+      ],
+      "uninsured_days": 101,
+      "policies": [
+        "NAL-MTR-202107310",
+        "SGI/PC/202207310"
+      ],
+      "explanation": "No insurance cover for 101 days between consecutive policies."
+    },
+    {
+      "rule": "ownership_mismatch",
+      "severity": "high",
+      "rc_owner_serial": 2,
+      "seller_claimed_owners": 1,
+      "explanation": "RC owner serial number is 2 but the seller claims 1 owner(s)."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "odometer_regression",
+      "question": "Can you explain why the recorded mileage went down between 2021-03-18 and 2022-01-27?"
+    },
+    {
+      "rule": "service_gap",
+      "question": "What happened during the gap in service history between 2019-07-06 and 2021-03-18?"
+    },
+    {
+      "rule": "insurance_lapse",
+      "question": "Why was the car uninsured between 2022-02-19 and 2022-06-01? Was it involved in any incident during that period?"
+    },
+    {
+      "rule": "ownership_mismatch",
+      "question": "The RC shows this is owner no. 2. Can you clarify how many previous owners the car has had?"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "flags": [
+    {
+      "rule": "ownership_mismatch",
+      "severity": "high",
+      "rc_owner_serial": 3,
+      "seller_claimed_owners": 1,
+      "explanation": "RC owner serial number is 3 but the seller claims 1 owner(s)."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "ownership_mismatch",
+      "question": "The RC shows this is owner no. 3. Can you clarify how many previous owners the car has had?"
+    }
+  ]
+}

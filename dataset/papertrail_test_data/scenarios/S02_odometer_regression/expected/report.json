@@ -1,0 +1,28 @@
+{
+  "flags": [
+    {
+      "rule": "odometer_regression",
+      "severity": "high",
+      "entries": [
+        "2021-06-02",
+        "2022-04-11"
+      ],
+      "values_km": [
+        34200,
+        31800
+      ],
+      "sources": [
+        "service_book_p1",
+        "service_book_p2"
+      ],
+      "explanation": "Mileage decreased from 34,200 km to 31,800 km between two dated records."
+    }
+  ],
+  "unreadable_notices": [],
+  "questions": [
+    {
+      "rule": "odometer_regression",
+      "question": "Can you explain why the recorded mileage went down between 2021-06-02 and 2022-04-11?"
+    }
+  ]
+}

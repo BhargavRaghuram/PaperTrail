@@ -1,0 +1,81 @@
+[
+  {
+    "date": "2018-02-20",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2018-03-30",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1400,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2018-10-11",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 12100,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2019-07-06",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 26700,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-02-20",
+    "type": "insurance_start",
+    "policy_number": "NAL-MTR-202107310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2021-03-18",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 41800,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-01-27",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 38900,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2022-02-19",
+    "type": "insurance_end",
+    "policy_number": "NAL-MTR-202107310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2022-06-01",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202207310",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2022-11-14",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 47600,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2023-05-31",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202207310",
+    "source": "insurance_2"
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "date": "2018-05-02",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2018-06-12",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1300,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2019-01-08",
+    "type": "service",
+    "service_type": "2nd Free Service",
+    "odometer_km": 11200,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2019-10-15",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 24900,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2020-08-22",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 38600,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-06-10",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 52300,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2021-11-04",
+    "type": "service",
+    "service_type": "Cluster replaced (warranty)",
+    "odometer_km": 180,
+    "source": "service_book_p2",
+    "note": "Instrument cluster replaced under warranty. Old reading 58,950 km. Job card JC/21/11/0442"
+  },
+  {
+    "date": "2022-05-02",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202207310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2022-09-01",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 12900,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2023-05-01",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202207310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2023-05-02",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202307327",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2023-07-20",
+    "type": "service",
+    "service_type": "Paid Service",
+    "odometer_km": 25400,
+    "source": "service_book_p2",
+    "note": null
+  },
+  {
+    "date": "2024-05-01",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202307327",
+    "source": "insurance_2"
+  }
+]

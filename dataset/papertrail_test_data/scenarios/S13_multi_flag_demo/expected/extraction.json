@@ -1,0 +1,123 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 JD 6645",
+    "registration_date": "2018-02-20",
+    "chassis_number": "MA3EYD81S00C66452",
+    "engine_number": "D13A6645219",
+    "owner_name": "Naveen Chandra",
+    "owner_serial": 2,
+    "maker": "Maruti Suzuki India Ltd",
+    "model": "Dzire ZDI",
+    "fuel": "Diesel",
+    "colour": "Oxford Blue",
+    "month_year_of_mfg": "01/2018",
+    "financier": "Bajaj Finance Ltd",
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 JD 6645",
+      "chassis_number": "MA3EYD81S00C66452",
+      "date_of_sale": "2018-02-18",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2018-03-30",
+        "odometer_km": 1400,
+        "service_type": "1st Free Service",
+        "dealer": "Sai Service, Koramangala",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2018-10-11",
+        "odometer_km": 12100,
+        "service_type": "2nd Free Service",
+        "dealer": "Sai Service, Koramangala",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2019-07-06",
+        "odometer_km": 26700,
+        "service_type": "Paid Service",
+        "dealer": "Sai Service, Koramangala",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-03-18",
+        "odometer_km": 41800,
+        "service_type": "Paid Service",
+        "dealer": "Friends Auto Garage, Hosur Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-01-27",
+        "odometer_km": 38900,
+        "service_type": "Paid Service",
+        "dealer": "Friends Auto Garage, Hosur Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-11-14",
+        "odometer_km": 47600,
+        "service_type": "Paid Service",
+        "dealer": "Friends Auto Garage, Hosur Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "NAL-MTR-202107310",
+      "insurer": "Navrang Assurance Ltd.",
+      "registration_number": "KA 99 JD 6645",
+      "chassis_number": "MA3EYD81S00C66452",
+      "insured_name": "Naveen Chandra",
+      "period_start": "2021-02-20",
+      "period_end": "2022-02-19",
+      "ncb_percent": 25,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "SGI/PC/202207310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 JD 6645",
+      "chassis_number": "MA3EYD81S00C66452",
+      "insured_name": "Naveen Chandra",
+      "period_start": "2022-06-01",
+      "period_end": "2023-05-31",
+      "ncb_percent": 0,
+      "previous_policy_number": "NAL-MTR-202107310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

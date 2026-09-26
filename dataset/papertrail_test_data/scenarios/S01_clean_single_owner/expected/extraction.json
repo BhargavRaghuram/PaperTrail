@@ -1,0 +1,143 @@
+{
+  "rc": {
+    "document_type": "rc",
+    "source": "rc",
+    "registration_number": "KA 99 MH 4417",
+    "registration_date": "2019-03-14",
+    "chassis_number": "MAKGM6630KN204417",
+    "engine_number": "L15Z1-3204417",
+    "owner_name": "Ramesh Kumar Hegde",
+    "owner_serial": 1,
+    "maker": "Honda Cars India Ltd",
+    "model": "City 1.5 V MT",
+    "fuel": "Petrol",
+    "colour": "Radiant Red",
+    "month_year_of_mfg": "02/2019",
+    "financier": null,
+    "confidence": "high",
+    "low_confidence_fields": []
+  },
+  "service_book": {
+    "document_type": "service_book",
+    "vehicle": {
+      "registration_number": "KA 99 MH 4417",
+      "chassis_number": "MAKGM6630KN204417",
+      "date_of_sale": "2019-03-12",
+      "source": "service_book_p1"
+    },
+    "entries": [
+      {
+        "date": "2019-04-20",
+        "odometer_km": 1050,
+        "service_type": "1st Free Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2019-10-12",
+        "odometer_km": 7800,
+        "service_type": "2nd Free Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2020-09-30",
+        "odometer_km": 16900,
+        "service_type": "Paid Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2021-06-02",
+        "odometer_km": 24300,
+        "service_type": "Paid Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2022-05-18",
+        "odometer_km": 33100,
+        "service_type": "Paid Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p1",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2023-04-27",
+        "odometer_km": 41850,
+        "service_type": "Paid Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2024-04-15",
+        "odometer_km": 50200,
+        "service_type": "Paid Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      },
+      {
+        "date": "2025-03-30",
+        "odometer_km": 58900,
+        "service_type": "Paid Service",
+        "dealer": "Kaveri Honda, Mysuru Rd",
+        "source": "service_book_p2",
+        "confidence": "high",
+        "low_confidence_fields": [],
+        "notes": null
+      }
+    ]
+  },
+  "insurance": [
+    {
+      "document_type": "insurance",
+      "source": "insurance_1",
+      "policy_number": "SGI/PC/202407310",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 MH 4417",
+      "chassis_number": "MAKGM6630KN204417",
+      "insured_name": "Ramesh Kumar Hegde",
+      "period_start": "2024-03-14",
+      "period_end": "2025-03-13",
+      "ncb_percent": 20,
+      "previous_policy_number": null,
+      "confidence": "high",
+      "low_confidence_fields": []
+    },
+    {
+      "document_type": "insurance",
+      "source": "insurance_2",
+      "policy_number": "SGI/PC/202507327",
+      "insurer": "Suraksha General Insurance Co. Ltd.",
+      "registration_number": "KA 99 MH 4417",
+      "chassis_number": "MAKGM6630KN204417",
+      "insured_name": "Ramesh Kumar Hegde",
+      "period_start": "2025-03-14",
+      "period_end": "2026-03-13",
+      "ncb_percent": 25,
+      "previous_policy_number": "SGI/PC/202407310",
+      "confidence": "high",
+      "low_confidence_fields": []
+    }
+  ]
+}

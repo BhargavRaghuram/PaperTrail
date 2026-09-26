@@ -1,0 +1,41 @@
+[
+  {
+    "date": "2021-04-05",
+    "type": "registration",
+    "odometer_km": 0,
+    "source": "rc",
+    "note": "Odometer assumed 0 at first registration (new vehicle)"
+  },
+  {
+    "date": "2021-05-20",
+    "type": "service",
+    "service_type": "1st Free Service",
+    "odometer_km": 1200,
+    "source": "service_book_p1",
+    "note": null
+  },
+  {
+    "date": "2024-04-05",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202407310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2025-04-04",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202407310",
+    "source": "insurance_1"
+  },
+  {
+    "date": "2025-04-05",
+    "type": "insurance_start",
+    "policy_number": "SGI/PC/202507327",
+    "source": "insurance_2"
+  },
+  {
+    "date": "2026-04-04",
+    "type": "insurance_end",
+    "policy_number": "SGI/PC/202507327",
+    "source": "insurance_2"
+  }
+]
