@@ -68,6 +68,8 @@ export interface PartRisk {
 
 export interface PriceComp { source: string; title: string; price_inr: number; url: string; }
 
+export interface MarketRange { low: number; high: number; count: number; source: "live" | "sample"; }
+
 export interface Report {
   car: CarFacts;
   timeline: TLEvent[];
@@ -76,4 +78,5 @@ export interface Report {
   questions: { rule: string; question: string }[];
   part_risks: PartRisk[];
   price_comps: PriceComp[];
+  market?: MarketRange;
 }

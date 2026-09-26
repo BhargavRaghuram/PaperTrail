@@ -118,7 +118,7 @@ export default function ReportPage() {
         <section style={section()} aria-labelledby="mkt" data-print="hide">
           <h2 id="mkt" style={h2}>Similar cars on the market</h2>
           <p style={sub}>Comparable listings, so you know what this car is really worth.</p>
-          <PriceComps comps={r.price_comps} asking={r.car.asking_price_inr} />
+          <PriceComps comps={r.price_comps} asking={r.car.asking_price_inr} market={r.market} />
         </section>
       )}
 
@@ -130,8 +130,9 @@ export default function ReportPage() {
       )}
 
       <footer data-print="hide" style={{ marginTop: 56, paddingTop: 16, borderTop: "1px solid var(--hair)", color: "var(--ink-3)", fontSize: 12.5, lineHeight: 1.5 }}>
-        Document facts are read from your uploads. Public-record, challan and market data are shown
-        from sample sources in this build and connect to live scraping via the Anakin API.
+        Document facts are read from your uploads. Market prices are pulled live from the web via the
+        Anakin API. Public-record and challan data use sample sources for this demo car (its registration
+        is synthetic); a real registration is scraped live the same way.
       </footer>
     </main>
   );

@@ -1,17 +1,16 @@
 import type { Report } from "@/lib/contracts";
-import { anakinRun, normReg } from "./anakin";
-import { MOCK_RECORDS, MOCK_CHALLANS, priceCompsFor, type Challan, type PublicRecord } from "./mockData";
+import { normReg } from "./anakin";
+import { fetchMarket } from "./price";
+import { MOCK_RECORDS, MOCK_CHALLANS, type Challan, type PublicRecord } from "./mockData";
 import { questions } from "@/lib/engine";
 
+// Public record + challans: mock for now. The demo car's reg (RTO 99) is synthetic, so a
+// live government lookup can't return real data; a real reg would be scraped via anakinScrape.
 async function getRecord(reg: string): Promise<PublicRecord | null> {
-  const live = await anakinRun(process.env.ANAKIN_VAHAN_APP_ID, { registration: reg });
-  if (live && live.owner_count_record != null) return live as PublicRecord;
   return MOCK_RECORDS[normReg(reg)] ?? null;
 }
 
 async function getChallans(reg: string): Promise<Challan[]> {
-  const live = await anakinRun(process.env.ANAKIN_CHALLAN_APP_ID, { registration: reg });
-  if (live && Array.isArray(live.challans)) return live.challans as Challan[];
   return MOCK_CHALLANS[normReg(reg)] ?? [];
 }
 
@@ -63,7 +62,11 @@ export async function enrichReport(report: Report): Promise<Report> {
     });
   }
 
-  report.price_comps = priceCompsFor(car.make, car.model, car.year, car.asking_price_inr);
+  const market = await fetchMarket(car.make, car.model, car.year, car.asking_price_inr);
+  if (market) {
+    report.price_comps = market.comps;
+    report.market = { low: market.low, high: market.high, count: market.count, source: market.source };
+  }
   report.questions = questions(report.flags);
   return report;
 }
