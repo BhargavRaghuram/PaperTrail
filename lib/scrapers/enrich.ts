@@ -3,7 +3,6 @@ import { normReg } from "./anakin";
 import { fetchMarket } from "./price";
 import { MOCK_RECORDS, MOCK_CHALLANS, type Challan, type PublicRecord } from "./mockData";
 import { questions } from "@/lib/engine";
-import { assessParts } from "@/lib/cost/costEngine";
 import { livePartPrice } from "./partPrice";
 
 // Public record + challans: mock for now. The demo car's reg (RTO 99) is synthetic, so a
@@ -69,6 +68,9 @@ export async function enrichReport(report: Report): Promise<Report> {
     report.price_comps = market.comps;
     report.market = { low: market.low, high: market.high, count: market.count, source: market.source };
   }
+  // Patch cost/source onto the parts assembleReport already classified — never re-derive
+  // status from report.timeline here, since the challan push above just mutated it, and a
+  // challan note that happens to share a word with a part name would wrongly flip that part.
   const stale = report.part_risks.filter((p) => p.status !== "ok").slice(0, 4);
   if (stale.length && (car.make || car.model)) {
     const prices = await Promise.all(stale.map((p) => livePartPrice(car.make, car.model, p.part)));
@@ -77,12 +79,9 @@ export async function enrichReport(report: Report): Promise<Report> {
       const price = prices[i];
       if (price) overrides[p.part] = price;
     });
-    if (Object.keys(overrides).length) {
-      report.part_risks = assessParts(car, report.timeline, undefined, overrides).map((p) => ({
-        ...p,
-        source: overrides[p.part] != null ? ("live" as const) : p.source,
-      }));
-    }
+    report.part_risks = report.part_risks.map((p) =>
+      overrides[p.part] != null ? { ...p, est_cost_inr: overrides[p.part], source: "live" as const } : p,
+    );
   }
 
   report.questions = questions(report.flags);
