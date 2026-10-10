@@ -11,15 +11,7 @@ import { FlagCard } from "@/components/FlagCard";
 import { PartRiskCard } from "@/components/PartRiskCard";
 import { QuestionSheet } from "@/components/QuestionSheet";
 import { PriceComps } from "@/components/PriceComps";
-import { CarModel3D, type Hotspot, type Zone } from "@/components/CarModel3D";
 import { Check, Printer } from "@/components/icons";
-
-const PART_ZONE: Record<string, Zone> = {
-  "Alternator": "engine", "AC compressor": "engine", "Radiator": "engine",
-  "Timing belt": "engine", "Clutch assembly": "engine", "Turbocharger": "engine",
-  "Starter motor": "engine", "Battery": "engine",
-  "Tyres (set of 4)": "wheel", "Brake pads and discs": "wheel", "Suspension struts (set)": "wheel",
-};
 
 const wrap: React.CSSProperties = { maxWidth: 760, margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 22px 96px" };
 const h2: React.CSSProperties = { fontSize: "clamp(22px, 3.4vw, 28px)", margin: "0 0 4px", letterSpacing: "-0.03em" };
@@ -67,13 +59,6 @@ export default function ReportPage() {
   ];
 
   const hasOdo = r.timeline.some((e) => typeof e.odometer_km === "number");
-
-  const hotspots: Hotspot[] = activeCosts.map((p) => ({
-    zone: PART_ZONE[p.part] ?? "engine",
-    label: p.part,
-    cost: p.est_cost_inr,
-    severity: p.status as Hotspot["severity"],
-  }));
 
   return (
     <main style={wrap}>
@@ -149,10 +134,7 @@ export default function ReportPage() {
       {activeCosts.length > 0 && (
         <section style={section} aria-labelledby="cost">
           <h2 id="cost" style={h2}>What it may cost you next</h2>
-          <p style={sub}>Big-ticket parts near the end of their life for a car this age and mileage. Drag to rotate — the glowing zones below are where they sit.</p>
-          <div className="card no-print" style={{ height: 260, marginBottom: 20, overflow: "hidden" }}>
-            <CarModel3D tone={tone} hotspots={hotspots} />
-          </div>
+          <p style={sub}>Big-ticket parts near the end of their life for a car this age and mileage.</p>
           {activeCosts.map((p, i) => (
             <PartRiskCard key={i} risk={p} i={i} />
           ))}
