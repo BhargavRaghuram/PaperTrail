@@ -29,20 +29,6 @@ export default function ReportPage() {
     }
   }, []);
 
-  const [printScope, setPrintScope] = useState<"full" | "sheet" | null>(null);
-
-  useEffect(() => {
-    if (!printScope) return;
-    const id = requestAnimationFrame(() => window.print());
-    return () => cancelAnimationFrame(id);
-  }, [printScope]);
-
-  useEffect(() => {
-    const reset = () => setPrintScope(null);
-    window.addEventListener("afterprint", reset);
-    return () => window.removeEventListener("afterprint", reset);
-  }, []);
-
   const breakDates = r.flags
     .filter((f) => f.rule === "odometer_regression" || f.rule === "implausible_mileage_jump")
     .flatMap((f) => (f.entries as string[]) ?? []);
@@ -75,9 +61,8 @@ export default function ReportPage() {
   const hasOdo = r.timeline.some((e) => typeof e.odometer_km === "number");
 
   return (
-    <main style={wrap} data-print-scope={printScope ?? undefined}>
+    <main style={wrap}>
       <motion.header
-        data-print="hide"
         initial={reduce ? false : { opacity: 0, y: 10 }}
         animate={reduce ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -86,7 +71,7 @@ export default function ReportPage() {
           <div className="eyebrow" style={{ letterSpacing: "0.22em" }}>
             <span className="iris-text" style={{ fontWeight: 600 }}>PaperTrail</span> · forensic report
           </div>
-          <button type="button" className="no-print btn btn-ghost" onClick={() => setPrintScope("full")}>
+          <button type="button" className="no-print btn btn-ghost" onClick={() => window.print()}>
             <Printer width={16} height={16} /> Export full report
           </button>
         </div>
@@ -114,20 +99,20 @@ export default function ReportPage() {
       </motion.header>
 
       {hasOdo && (
-        <section style={section} aria-labelledby="odo" data-print="hide">
+        <section style={section} aria-labelledby="odo">
           <h2 id="odo" style={h2}>Odometer, read against time</h2>
           <p style={sub}>A genuine odometer only ever climbs. Any fall is physically impossible.</p>
           <OdometerChart events={r.timeline} breakDates={breakDates} />
         </section>
       )}
 
-      <section style={section} aria-labelledby="tl" data-print="hide">
+      <section style={section} aria-labelledby="tl">
         <h2 id="tl" style={h2}>The paper trail</h2>
         <p style={sub}>Every dated record from the RC, service book and insurance, in order.</p>
         <Timeline events={r.timeline} breakDates={breakDates} />
       </section>
 
-      <section style={section} aria-labelledby="iss" data-print="hide">
+      <section style={section} aria-labelledby="iss">
         <h2 id="iss" style={h2}>{n === 0 ? "No issues found" : `Issues found (${n})`}</h2>
         <p style={sub}>What a careful buyer — or a mechanic — would stop and question.</p>
         {n === 0 ? (
@@ -147,7 +132,7 @@ export default function ReportPage() {
       </section>
 
       {activeCosts.length > 0 && (
-        <section style={section} aria-labelledby="cost" data-print="hide">
+        <section style={section} aria-labelledby="cost">
           <h2 id="cost" style={h2}>What it may cost you next</h2>
           <p style={sub}>Big-ticket parts near the end of their life for a car this age and mileage.</p>
           {activeCosts.map((p, i) => (
@@ -157,7 +142,7 @@ export default function ReportPage() {
       )}
 
       {r.price_comps.length > 0 && (
-        <section style={section} aria-labelledby="mkt" data-print="hide">
+        <section style={section} aria-labelledby="mkt">
           <h2 id="mkt" style={h2}>Similar cars on the market</h2>
           <p style={sub}>Comparable listings, so you know what this car is really worth.</p>
           <PriceComps comps={r.price_comps} asking={r.car.asking_price_inr} market={r.market} />
@@ -167,12 +152,12 @@ export default function ReportPage() {
       {r.questions.length > 0 && (
         <section style={section} aria-labelledby="q">
           <h2 id="q" style={h2}>Questions for the seller</h2>
-          <p style={sub} className="no-print">Take these with you. Print-clean on white paper.</p>
-          <QuestionSheet questions={r.questions} carLabel={carLabel} onPrint={() => setPrintScope("sheet")} />
+          <p style={sub} className="no-print">Take these with you — included in the full export below.</p>
+          <QuestionSheet questions={r.questions} carLabel={carLabel} />
         </section>
       )}
 
-      <footer data-print="hide" style={{ marginTop: 56, paddingTop: 16, borderTop: "1px solid var(--hair)", color: "var(--ink-3)", fontSize: 12.5, lineHeight: 1.5 }}>
+      <footer style={{ marginTop: 56, paddingTop: 16, borderTop: "1px solid var(--hair)", color: "var(--ink-3)", fontSize: 12.5, lineHeight: 1.5 }}>
         Document facts are read from your uploads via OpenAI vision. Market prices are pulled live from the
         web via SerpApi. Public-record and challan data use sample sources for this demo car (its registration
         is synthetic); a real registration is looked up live the same way.
