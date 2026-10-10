@@ -4,7 +4,7 @@ import type { Report } from "@/lib/contracts";
 
 vi.mock("@/lib/scrapers/partPrice", () => ({
   livePartPrice: vi.fn(async (_make: string | undefined, _model: string | undefined, part: string) =>
-    part === "Battery" ? 6200 : null,
+    part === "Battery" ? { price_inr: 6200, source: "Boodmo", url: "https://boodmo.com/battery" } : null,
   ),
 }));
 
@@ -66,5 +66,7 @@ describe("enrichReport (moat via mock fallback)", () => {
     expect(battery.status).toBe("overdue");
     expect(battery.est_cost_inr).toBe(6200);
     expect(battery.source).toBe("live");
+    expect(battery.price_source_label).toBe("Boodmo");
+    expect(battery.price_source_url).toBe("https://boodmo.com/battery");
   });
 });

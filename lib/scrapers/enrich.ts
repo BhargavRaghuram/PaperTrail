@@ -74,14 +74,13 @@ export async function enrichReport(report: Report): Promise<Report> {
   const stale = report.part_risks.filter((p) => p.status !== "ok").slice(0, 4);
   if (stale.length && (car.make || car.model)) {
     const prices = await Promise.all(stale.map((p) => livePartPrice(car.make, car.model, p.part)));
-    const overrides: Record<string, number> = {};
-    stale.forEach((p, i) => {
-      const price = prices[i];
-      if (price) overrides[p.part] = price;
+    const overrides = new Map(stale.map((p, i) => [p.part, prices[i]] as const));
+    report.part_risks = report.part_risks.map((p) => {
+      const live = overrides.get(p.part);
+      return live
+        ? { ...p, est_cost_inr: live.price_inr, source: "live" as const, price_source_label: live.source, price_source_url: live.url }
+        : p;
     });
-    report.part_risks = report.part_risks.map((p) =>
-      overrides[p.part] != null ? { ...p, est_cost_inr: overrides[p.part], source: "live" as const } : p,
-    );
   }
 
   report.questions = questions(report.flags);

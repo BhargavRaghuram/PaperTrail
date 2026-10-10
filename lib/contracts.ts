@@ -65,6 +65,7 @@ export interface PartRisk {
   part: string; priority: "high" | "low"; est_cost_inr: number;
   status: "overdue" | "due_soon" | "ok"; reason: string;
   source: "live" | "catalog";
+  price_source_label?: string; price_source_url?: string;
 }
 
 export interface PriceComp { source: string; title: string; price_inr: number; url: string; }

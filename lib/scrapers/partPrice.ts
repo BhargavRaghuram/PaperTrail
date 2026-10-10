@@ -24,14 +24,28 @@ export function parseRupeePrice(text: string): number | null {
   return Math.round(vals[Math.floor(vals.length / 2)]);
 }
 
+export interface LivePartPrice { price_inr: number; source: string; url: string; }
+
+export function hostLabel(u: string): string {
+  try {
+    const h = new URL(u).hostname.replace(/^www\./, "");
+    return h.split(".")[0].replace(/^\w/, (c) => c.toUpperCase());
+  } catch {
+    return "Web";
+  }
+}
+
 export async function livePartPrice(
   make: string | undefined,
   model: string | undefined,
   part: string,
-): Promise<number | null> {
+): Promise<LivePartPrice | null> {
   if (!make && !model) return null;
   const q = [make, model, part, "price India"].filter(Boolean).join(" ");
   const results = await searchProvider.search(q);
   if (!results || !results.length) return null;
-  return parseRupeePrice(results.map((r) => `${r.title} ${r.snippet}`).join(" "));
+  const price_inr = parseRupeePrice(results.map((r) => `${r.title} ${r.snippet}`).join(" "));
+  if (!price_inr) return null;
+  const top = results.find((r) => r.url) ?? results[0];
+  return { price_inr, source: hostLabel(top.url), url: top.url };
 }

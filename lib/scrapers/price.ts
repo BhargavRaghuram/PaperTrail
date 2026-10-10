@@ -1,9 +1,23 @@
 import type { PriceComp } from "@/lib/contracts";
-import { anakinSearch } from "./anakin";
+import { searchProvider } from "@/lib/providers/search";
 import { priceCompsFor } from "./mockData";
 
 const LAKH = 100000;
-const SITES = /cars24|spinny|cardekho|olx|carwale|droom|truebil/i;
+
+// One targeted SerpApi query per marketplace — guarantees a comp from each site that
+// actually has one, instead of hoping several survive a single combined-OR query's
+// top 10 results (which in practice often surfaces only one matching host). Google's
+// `site:` operator isn't a hard filter — for a thin index it quietly substitutes
+// other marketplaces, which the `.includes(host)` check below correctly rejects
+// rather than misattributing. Five sites, not three, so a car still gets several
+// real comps even when one or two marketplaces have nothing indexed for it.
+const SITE_QUERIES: { name: string; host: string }[] = [
+  { name: "Cars24", host: "cars24.com" },
+  { name: "Spinny", host: "spinny.com" },
+  { name: "CarDekho", host: "cardekho.com" },
+  { name: "Zigwheels", host: "zigwheels.com" },
+  { name: "CarTrade", host: "cartrade.com" },
+];
 
 export interface Market {
   comps: PriceComp[];
@@ -36,40 +50,31 @@ function priceRange(text: string): { low: number; high: number } | null {
   return null;
 }
 
-function host(u: string) {
-  try {
-    return new URL(u).hostname.replace(/^www\./, "");
-  } catch {
-    return u;
-  }
-}
-
 export async function fetchMarket(make?: string, model?: string, year?: number, asking?: number): Promise<Market | null> {
   const q = [year, make, model].filter(Boolean).join(" ");
   if (q) {
-    const results = await anakinSearch(
-      `used ${q} price second hand car India site:cars24.com OR site:spinny.com OR site:cardekho.com`,
+    const perSite = await Promise.all(
+      SITE_QUERIES.map((s) => searchProvider.search(`used ${q} price site:${s.host}`)),
     );
-    if (results && results.length) {
-      const range = priceRange(results.map((r) => `${r.snippet} ${r.title}`).join(" "));
-      const seen = new Set<string>();
-      const comps: PriceComp[] = [];
-      for (const r of results) {
-        if (!r.url || !SITES.test(r.url)) continue;
-        const h = host(r.url);
-        if (seen.has(h)) continue;
-        seen.add(h);
+    const allResults = perSite.flatMap((r) => r ?? []);
+    const range = priceRange(allResults.map((r) => `${r.snippet} ${r.title}`).join(" "));
+
+    const comps: PriceComp[] = [];
+    perSite.forEach((results, i) => {
+      const site = SITE_QUERIES[i];
+      const hit = (results ?? []).find((r) => r.url && r.url.includes(site.host));
+      if (hit) {
         comps.push({
-          source: h.split(".")[0].replace(/^\w/, (c) => c.toUpperCase()),
-          title: (r.title || q).replace(/\s+/g, " ").trim().slice(0, 80),
+          source: site.name,
+          title: (hit.title || q).replace(/\s+/g, " ").trim().slice(0, 80),
           price_inr: 0, // real per-listing price is unreliable to parse; link out instead
-          url: r.url,
+          url: hit.url,
         });
-        if (comps.length >= 4) break;
       }
-      if (comps.length && range) {
-        return { comps, low: range.low, high: range.high, count: results.length, source: "live" };
-      }
+    });
+
+    if (comps.length && range) {
+      return { comps, low: range.low, high: range.high, count: allResults.length, source: "live" };
     }
   }
 

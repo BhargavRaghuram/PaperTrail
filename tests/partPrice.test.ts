@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseRupeePrice } from "@/lib/scrapers/partPrice";
+import { parseRupeePrice, hostLabel } from "@/lib/scrapers/partPrice";
 
 describe("parseRupeePrice", () => {
   it("parses a plain rupee figure from a snippet", () => {
@@ -24,5 +24,16 @@ describe("parseRupeePrice", () => {
 
   it("returns null when nothing in a plausible part-price band is found", () => {
     expect(parseRupeePrice("No price mentioned here, just a car description")).toBeNull();
+  });
+});
+
+describe("hostLabel", () => {
+  it("turns a URL into a capitalized, www-stripped site name", () => {
+    expect(hostLabel("https://www.boodmo.com/battery-price")).toBe("Boodmo");
+    expect(hostLabel("https://carparts.co.in/item")).toBe("Carparts");
+  });
+
+  it("falls back to a generic label for an unparseable URL", () => {
+    expect(hostLabel("not a url")).toBe("Web");
   });
 });

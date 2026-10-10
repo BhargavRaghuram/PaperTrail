@@ -43,6 +43,17 @@ export function PartRiskCard({ risk, i = 0 }: { risk: PartRisk; i?: number }) {
         />
       </div>
       <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-2)", maxWidth: "60ch", lineHeight: 1.5 }}>{risk.reason}</p>
+      {risk.source === "live" && risk.price_source_url && (
+        <a
+          href={risk.price_source_url}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="mono"
+          style={{ display: "inline-block", marginTop: 7, fontSize: 12, color: "var(--iris-deep)" }}
+        >
+          Priced from {risk.price_source_label ?? "the web"} via SerpApi →
+        </a>
+      )}
     </motion.div>
   );
 }
