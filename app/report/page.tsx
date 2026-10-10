@@ -11,7 +11,7 @@ import { FlagCard } from "@/components/FlagCard";
 import { PartRiskCard } from "@/components/PartRiskCard";
 import { QuestionSheet } from "@/components/QuestionSheet";
 import { PriceComps } from "@/components/PriceComps";
-import { Check } from "@/components/icons";
+import { Check, Printer } from "@/components/icons";
 
 const wrap: React.CSSProperties = { maxWidth: 760, margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 22px 96px" };
 const h2: React.CSSProperties = { fontSize: "clamp(22px, 3.4vw, 28px)", margin: "0 0 4px", letterSpacing: "-0.03em" };
@@ -27,6 +27,20 @@ export default function ReportPage() {
     if (s) {
       try { setR(JSON.parse(s)); } catch { /* keep hero fallback */ }
     }
+  }, []);
+
+  const [printScope, setPrintScope] = useState<"full" | "sheet" | null>(null);
+
+  useEffect(() => {
+    if (!printScope) return;
+    const id = requestAnimationFrame(() => window.print());
+    return () => cancelAnimationFrame(id);
+  }, [printScope]);
+
+  useEffect(() => {
+    const reset = () => setPrintScope(null);
+    window.addEventListener("afterprint", reset);
+    return () => window.removeEventListener("afterprint", reset);
   }, []);
 
   const breakDates = r.flags
@@ -61,15 +75,20 @@ export default function ReportPage() {
   const hasOdo = r.timeline.some((e) => typeof e.odometer_km === "number");
 
   return (
-    <main style={wrap}>
+    <main style={wrap} data-print-scope={printScope ?? undefined}>
       <motion.header
         data-print="hide"
         initial={reduce ? false : { opacity: 0, y: 10 }}
         animate={reduce ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="eyebrow" style={{ letterSpacing: "0.22em" }}>
-          <span className="iris-text" style={{ fontWeight: 600 }}>PaperTrail</span> · forensic report
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+          <div className="eyebrow" style={{ letterSpacing: "0.22em" }}>
+            <span className="iris-text" style={{ fontWeight: 600 }}>PaperTrail</span> · forensic report
+          </div>
+          <button type="button" className="no-print btn btn-ghost" onClick={() => setPrintScope("full")}>
+            <Printer width={16} height={16} /> Export full report
+          </button>
         </div>
         <h1 style={{ fontSize: "clamp(34px, 7vw, 56px)", margin: "12px 0 6px", letterSpacing: "-0.04em" }}>
           {carName}
@@ -149,14 +168,14 @@ export default function ReportPage() {
         <section style={section} aria-labelledby="q">
           <h2 id="q" style={h2}>Questions for the seller</h2>
           <p style={sub} className="no-print">Take these with you. Print-clean on white paper.</p>
-          <QuestionSheet questions={r.questions} carLabel={carLabel} />
+          <QuestionSheet questions={r.questions} carLabel={carLabel} onPrint={() => setPrintScope("sheet")} />
         </section>
       )}
 
       <footer data-print="hide" style={{ marginTop: 56, paddingTop: 16, borderTop: "1px solid var(--hair)", color: "var(--ink-3)", fontSize: 12.5, lineHeight: 1.5 }}>
-        Document facts are read from your uploads. Market prices are pulled live from the web via the
-        Anakin API. Public-record and challan data use sample sources for this demo car (its registration
-        is synthetic); a real registration is scraped live the same way.
+        Document facts are read from your uploads via OpenAI vision. Market prices are pulled live from the
+        web via SerpApi. Public-record and challan data use sample sources for this demo car (its registration
+        is synthetic); a real registration is looked up live the same way.
       </footer>
     </main>
   );

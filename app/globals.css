@@ -181,11 +181,16 @@ a { color: var(--iris-deep); text-underline-offset: 3px; text-decoration-thickne
   }
 }
 
-/* ── Print: only the seller-question sheet, clean on white ── */
+/* ── Print: defaults to the full report; main[data-print-scope="sheet"] narrows to just the question sheet ── */
 @media print {
   :root { --paper: #ffffff; --bone: #ffffff; }
   body { background: #fff; }
-  [data-print="hide"] { display: none !important; }
-  [data-print="sheet"] { display: block !important; }
   .no-print { display: none !important; }
+
+  /* Framer Motion leaves inline opacity/transform on scroll-reveal elements that never
+     entered the viewport; force everything visible so the printed page isn't blank below the fold. */
+  * { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+
+  main[data-print-scope="sheet"] [data-print="hide"] { display: none !important; }
+  main[data-print-scope="sheet"] [data-print="sheet"] { display: block !important; }
 }

@@ -4,14 +4,16 @@ import { Printer } from "./icons";
 export function QuestionSheet({
   questions,
   carLabel,
+  onPrint,
 }: {
   questions: { rule: string; question: string }[];
   carLabel?: string;
+  onPrint: () => void;
 }) {
   return (
     <div>
-      <button type="button" className="no-print btn btn-primary" onClick={() => window.print()} style={{ marginBottom: 18 }}>
-        <Printer width={16} height={16} /> Print this sheet
+      <button type="button" className="no-print btn btn-primary" onClick={onPrint} style={{ marginBottom: 18 }}>
+        <Printer width={16} height={16} /> Print just these questions
       </button>
 
       <div data-print="sheet" className="card" style={{ padding: "24px 24px 12px" }}>
