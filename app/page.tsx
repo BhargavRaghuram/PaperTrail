@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Extraction, ServiceBook, ServiceEntry } from "@/lib/contracts";
+import { ActivityLog, type LogLine } from "@/components/ActivityLog";
 
 async function resizeToJpeg(file: File, maxEdge = 1280, q = 0.8): Promise<{ base64: string; mediaType: string }> {
   const bitmap = await createImageBitmap(file);
@@ -28,6 +29,24 @@ async function extractOne(file: File, docType: string, stem: string) {
   return fragment;
 }
 
+// "✗"/"✓" prefixes are the non-color signal for error/done — a red/green dot alone
+// fails the "don't convey status by color alone" accessibility check (ui-ux-pro-max).
+function describeFragment(docType: string, f: Record<string, any> | null): string {
+  if (!f) return "✗ Could not read this page — skipped";
+  if (docType === "rc") {
+    const bits = [f.maker, f.model].filter(Boolean).join(" ");
+    return `✓ ${bits || "RC read"}${f.owner_serial ? ` · owner ${f.owner_serial}` : ""}`;
+  }
+  if (docType === "service_book") {
+    const n = f.entries?.length ?? 0;
+    return `✓ ${n} service entr${n === 1 ? "y" : "ies"} found`;
+  }
+  if (docType === "insurance") {
+    return `✓ ${f.insurer ?? "Policy"}${f.policy_number ? ` · ${f.policy_number}` : ""}`;
+  }
+  return "✓ Read";
+}
+
 function Field({ children, i }: { children: React.ReactNode; i: number }) {
   const reduce = useReducedMotion();
   return (
@@ -50,39 +69,57 @@ export default function Home() {
   const [claim, setClaim] = useState("");
   const [owners, setOwners] = useState("");
   const [price, setPrice] = useState("");
-  const [busy, setBusy] = useState<string | null>(null);
+  const [running, setRunning] = useState(false);
+  const [log, setLog] = useState<LogLine[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  function pushLine(id: string, text: string, status: LogLine["status"], kind?: LogLine["kind"]) {
+    setLog((prev) => {
+      const i = prev.findIndex((l) => l.id === id);
+      const line: LogLine = { id, text, status, kind };
+      if (i === -1) return [...prev, line];
+      const copy = prev.slice();
+      copy[i] = line;
+      return copy;
+    });
+  }
+
+  async function extractWithLog(file: File, docType: string, stem: string, id: string, label: string) {
+    pushLine(id, `Reading ${label} with OpenAI vision…`, "active", "scan");
+    const f = await extractOne(file, docType, stem);
+    pushLine(id, describeFragment(docType, f), f ? "done" : "error", "scan");
+    return f;
+  }
 
   async function run() {
     setError(null);
+    setLog([]);
+    setRunning(true);
     try {
-      setBusy("Reading the RC…");
       const extraction: Extraction = { rc: null, service_book: null, insurance: [] };
 
       if (rc) {
-        const f = await extractOne(rc, "rc", "rc");
+        const f = await extractWithLog(rc, "rc", "rc", "rc", "the RC");
         if (f) extraction.rc = f;
       }
       if (service && service.length) {
-        setBusy("Reading the service book…");
         const entries: ServiceEntry[] = [];
         let vehicle: ServiceBook["vehicle"] | undefined;
         for (let i = 0; i < service.length; i++) {
-          const f = await extractOne(service[i], "service_book", `service_book_p${i + 1}`);
+          const f = await extractWithLog(service[i], "service_book", `service_book_p${i + 1}`, `svc-${i}`, `service book page ${i + 1}`);
           if (f?.entries) entries.push(...f.entries);
           if (f?.vehicle && !vehicle) vehicle = f.vehicle;
         }
         extraction.service_book = { document_type: "service_book", vehicle, entries };
       }
       if (insurance && insurance.length) {
-        setBusy("Reading the insurance…");
         for (let i = 0; i < insurance.length; i++) {
-          const f = await extractOne(insurance[i], "insurance", `insurance_${i + 1}`);
+          const f = await extractWithLog(insurance[i], "insurance", `insurance_${i + 1}`, `ins-${i}`, `insurance page ${i + 1}`);
           if (f) extraction.insurance.push(f);
         }
       }
 
-      setBusy("Reconstructing the timeline…");
+      pushLine("verify", "Cross-checking the papers and searching SerpApi for market price & part costs…", "active", "search");
       const seller_claim = { claimed_owners: owners ? Number(owners) : null, raw_text: claim };
       const res = await fetch("/api/verify", {
         method: "POST",
@@ -90,16 +127,23 @@ export default function Home() {
         body: JSON.stringify({ extraction, seller_claim, asking_price_inr: price ? Number(price) : null }),
       });
       const report = await res.json();
+      const n = report.flags?.length ?? 0;
+      const marketBit = report.market ? ` · market ₹${Math.round(report.market.low / 1000)}k–₹${Math.round(report.market.high / 1000)}k` : "";
+      pushLine("verify", `✓ ${n} issue${n === 1 ? "" : "s"} found${marketBit}`, "done", "search");
+
       sessionStorage.setItem("papertrail_report", JSON.stringify(report));
       router.push("/report");
     } catch (e) {
-      setBusy(null);
+      // Flip whichever line was mid-flight to error instead of leaving its pulse spinning forever —
+      // we don't know which await threw, so resolve every still-"active" line, not just add a new one.
+      setLog((prev) => prev.map((l) => (l.status === "active" ? { ...l, status: "error", text: "✗ Something went wrong — please try again." } : l)));
       setError("Something went wrong reading the documents. Please try again.");
+      setRunning(false);
       console.error(e);
     }
   }
 
-  const canSubmit = !!rc && !busy;
+  const canSubmit = !!rc && !running;
   const reduce = useReducedMotion();
 
   const fileCount = (fl: FileList | null) => (fl && fl.length ? `${fl.length} page${fl.length > 1 ? "s" : ""} selected` : null);
@@ -165,20 +209,22 @@ export default function Home() {
         <p role="alert" style={{ color: "var(--danger)", fontSize: 14, marginBottom: 12 }}>{error}</p>
       )}
 
-      <button type="button" onClick={run} disabled={!canSubmit} aria-busy={!!busy}
+      <button type="button" onClick={run} disabled={!canSubmit} aria-busy={running}
         className="btn btn-primary" style={{ width: "100%", padding: "15px 20px", fontSize: 15.5 }}>
-        {busy ? (
+        {running ? (
           <>
             <motion.span aria-hidden
               style={{ width: 15, height: 15, borderRadius: "50%", border: "2px solid currentColor", borderTopColor: "transparent", display: "inline-block" }}
               animate={reduce ? undefined : { rotate: 360 }}
               transition={{ duration: 0.7, repeat: Infinity, ease: "linear" }} />
-            {busy}
+            Checking…
           </>
         ) : "Check this car"}
       </button>
 
-      {!rc && !busy && (
+      <ActivityLog lines={log} />
+
+      {!rc && !running && (
         <p style={{ color: "var(--ink-3)", fontSize: 13, marginTop: 10, textAlign: "center" }}>Add the RC to begin.</p>
       )}
       <p className="eyebrow" style={{ marginTop: 20, textAlign: "center", letterSpacing: "0.14em" }}>
