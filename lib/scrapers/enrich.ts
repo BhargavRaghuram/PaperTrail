@@ -3,6 +3,8 @@ import { normReg } from "./anakin";
 import { fetchMarket } from "./price";
 import { MOCK_RECORDS, MOCK_CHALLANS, type Challan, type PublicRecord } from "./mockData";
 import { questions } from "@/lib/engine";
+import { assessParts } from "@/lib/cost/costEngine";
+import { livePartPrice } from "./partPrice";
 
 // Public record + challans: mock for now. The demo car's reg (RTO 99) is synthetic, so a
 // live government lookup can't return real data; a real reg would be scraped via anakinScrape.
@@ -67,6 +69,22 @@ export async function enrichReport(report: Report): Promise<Report> {
     report.price_comps = market.comps;
     report.market = { low: market.low, high: market.high, count: market.count, source: market.source };
   }
+  const stale = report.part_risks.filter((p) => p.status !== "ok").slice(0, 4);
+  if (stale.length && (car.make || car.model)) {
+    const prices = await Promise.all(stale.map((p) => livePartPrice(car.make, car.model, p.part)));
+    const overrides: Record<string, number> = {};
+    stale.forEach((p, i) => {
+      const price = prices[i];
+      if (price) overrides[p.part] = price;
+    });
+    if (Object.keys(overrides).length) {
+      report.part_risks = assessParts(car, report.timeline, undefined, overrides).map((p) => ({
+        ...p,
+        source: overrides[p.part] != null ? ("live" as const) : p.source,
+      }));
+    }
+  }
+
   report.questions = questions(report.flags);
   return report;
 }

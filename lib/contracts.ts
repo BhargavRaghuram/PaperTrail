@@ -64,6 +64,7 @@ export interface CarFacts {
 export interface PartRisk {
   part: string; priority: "high" | "low"; est_cost_inr: number;
   status: "overdue" | "due_soon" | "ok"; reason: string;
+  source: "live" | "catalog";
 }
 
 export interface PriceComp { source: string; title: string; price_inr: number; url: string; }

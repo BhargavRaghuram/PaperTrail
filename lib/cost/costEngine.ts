@@ -37,7 +37,7 @@ export function assessParts(
     const cost = priceOverride?.[c.part] ?? Math.round((c.cost_min_inr + c.cost_max_inr) / 2);
     const replaced = replacedText.includes(c.part.toLowerCase().split(" ")[0]);
     if (replaced) {
-      return { part: c.part, priority: c.category, est_cost_inr: cost, status: "ok", reason: "Replacement noted in the service record." };
+      return { part: c.part, priority: c.category, est_cost_inr: cost, status: "ok", reason: "Replacement noted in the service record.", source: "catalog" };
     }
     const overdue = age >= c.years_life || km >= c.km_life;
     const dueSoon = age >= c.years_life * 0.8 || km >= c.km_life * 0.8;
@@ -47,7 +47,7 @@ export function assessParts(
       : dueSoon
         ? `Approaching the end of its typical ~${c.years_life}-year, ${c.km_life.toLocaleString("en-IN")}-km life.`
         : "Within expected service life.";
-    return { part: c.part, priority: c.category, est_cost_inr: cost, status, reason };
+    return { part: c.part, priority: c.category, est_cost_inr: cost, status, reason, source: "catalog" };
   });
 
   return risks.sort(

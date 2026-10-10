@@ -20,6 +20,7 @@
   --gradient-iris: linear-gradient(90deg, #c094e4 0%, #f7bbe6 50%, #ffb760 100%);
 
   /* Semantic — data meaning only */
+  --iris-tint: #f1e9f9;
   --danger: #cf2033; --danger-tint: #fbe9eb;
   --warn: #b06a12;   --warn-tint: #f8efe0;
   --ok: #2e7d54;     --ok-tint: #e8f2ec;

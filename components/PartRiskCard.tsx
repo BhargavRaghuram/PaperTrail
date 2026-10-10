@@ -25,6 +25,9 @@ export function PartRiskCard({ risk, i = 0 }: { risk: PartRisk; i?: number }) {
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
           <span style={{ fontWeight: 600, fontSize: 15 }}>{risk.part}</span>
           <span className="badge" style={{ color: s.color, background: s.tint }}>{s.label}</span>
+          {risk.source === "live" && (
+            <span className="badge" style={{ color: "var(--iris-deep)", background: "var(--iris-tint)" }}>Live · SerpApi</span>
+          )}
         </div>
         <span className="tnum" style={{ fontWeight: 700, fontSize: 16, whiteSpace: "nowrap", color: s.color }}>
           ~₹{risk.est_cost_inr.toLocaleString("en-IN")}
